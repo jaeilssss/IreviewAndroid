@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_login" />
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_menu_main"
+            android:title="@string/menu_main" />
+        //slideshow
+        <item
+            android:id="@+id/nav_category"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Category" />
+        //tools
+        <item
+            android:id="@+id/nav_latest_viewd"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="latest_viwed" />
+        <item
+            android:id="@+id/nav_Recommended_viewd"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Recommended_viwed" />
+        <item
+            android:id="@+id/nav_Event"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Event" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_Rangking"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Rangking" />
+            <item
+                android:id="@+id/nav_mypage"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_mypage" />
+            <item
+                android:id="@+id/nav_option"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Option" />
+            <item
+                android:id="@+id/nav_service_center"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Service Center" />
+            <item
+                android:id="@+id/nav_version"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Version Info" />
+        </menu>
+    </item>
+
+</menu>

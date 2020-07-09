@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.review.ReviewReadPageFragment"
+    android:orientation="vertical">
+    <!--    수정,삭제 버튼 아직없음!!!!!!!!!!-->
+    <!--    !!!!!!!!!!!!!!!1-->
+    <!--    !!!!!!!-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <!-- TODO: Update blank fragment layout -->
+            <ImageButton
+                android:id="@+id/review_read_page_list"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/left_arrow"
+                android:background="@null"
+                android:text="뒤로 가기" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Review"
+                android:textAlignment="center"
+                android:textColor="#2196F3"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#004983"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="화장품 > 립"
+            android:paddingTop="10dp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[MAC립스틱]"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/review_page_title"
+                android:paddingLeft="3dp"
+                android:textSize="18dp"
+                android:text="이 화장품 너무 좋아요 추천합니다!"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="작성자:  "
+                android:background="@null"
+                android:src="@drawable/profile_human"/>
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/review_page_nickname"
+                android:textSize="18dp"
+                android:layout_gravity="bottom"
+                android:text="evn.ha"/>
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/review_page_date"
+                android:text="2015-02-08"
+                android:layout_gravity="bottom"
+                android:gravity="right"
+                android:textSize="10dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#004983"/>
+
+        <!--    나중에 해당 이용자의 사진 사이즈에 따라서 이미지 뷰에 영향을 주는 방식으로 짜야될 거같음 -재일- -->
+        <ImageView
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_read_image"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/review_page_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#1E737373"/>
+
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:text="장점"
+                android:textSize="18dp"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:src="@drawable/thumsup_empty"/>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:paddingLeft="5dp"
+                android:text="발림성이 좋아요"
+                android:textColor="#000000"
+                android:id="@+id/review_page_advantage"/>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:text="단점"
+                android:textSize="18dp"
+                />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:src="@drawable/thumsdown_empty"/>
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:paddingLeft="5dp"
+                android:textColor="#000000"
+                android:id="@+id/review_page_weakness"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="추천"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23"
+                android:paddingLeft="3dp"
+                android:id="@+id/review_page_recommend"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조회수"
+                android:paddingLeft="7dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:paddingLeft="3dp"
+                android:id="@+id/review_page_view_count"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스크랩"
+                android:paddingLeft="7dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:paddingLeft="3dp"
+                android:id="@+id/review_page_scrap"/>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:button="@drawable/like_button"
+                android:id="@+id/iv_like"
+                android:checked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="수정"
+                android:visibility="invisible"
+                android:background="@null"
+                android:id="@+id/review_modify"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="삭제"
+                android:background="@null"
+                android:visibility="invisible"
+                android:id="@+id/review_delete"/>
+        </LinearLayout>
+
+        <!--<View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#1ECACACA"/>-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0071CC"
+            android:text="댓글"
+            android:textSize="18dp"/>
+        <!--        리사이클러뷰-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:hint="댓글을 입력하세요"
+                android:textSize="15dp"
+                android:id="@+id/review_read_edit_comment"
+
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="등록"
+                android:background="@null"
+                android:id="@+id/review_read_comment_submit"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_commentlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+</ScrollView>

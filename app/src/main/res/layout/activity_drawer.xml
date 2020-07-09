@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:id="@+id/drawer">
+
+
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/drawer_login"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:paddingRight="10dp"
+                android:background="#FFFFFF"
+                android:text="LOGIN" />
+            <Button
+                android:id="@+id/drawer_join"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:paddingRight="10dp"
+                android:background="@null"
+                android:text="JOIN" />
+
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_close"
+                    android:layout_width="35dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/background_btn_close"
+                    android:text="X" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:weightSum="0.9">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="notice"
+                android:layout_weight="0.3"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="ranking"
+                android:layout_weight="0.3"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="event"
+                android:layout_weight="0.3"/>
+        </LinearLayout>-->
+
+    <!--<Button
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="메뉴닫기"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="카테고리"/>-->
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:paddingLeft="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:layout_margin="5dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_weight="0.5"><!--
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tap_icon_fashion"></ImageView>-->
+
+                <Button
+                    android:id="@+id/tap_clothes"
+                    android:layout_weight="0.3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_white"
+                    android:gravity="left"
+                    android:text="패션" />
+            </LinearLayout>
+            
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_weight="0.5">
+<!--
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tap_icon_baby"></ImageView>-->
+
+                <Button
+                    android:id="@+id/tap_baby"
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:background="@drawable/btn_white"
+                    android:text="유아용품"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/botton_fashion"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="vertical"
+        android:background="#61E1E1E1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/botton_fashion_female_clothes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="여성 의류"
+                android:background="@null"/>
+            <Button
+                android:id="@+id/botton_fashion_kids_clothes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="유아동 의류"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/botton_fashion_male_clothes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="남성 의류"
+                android:background="@null"/>
+            <Button
+                android:id="@+id/botton_fashion_bag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="가방"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/botton_fashion_female_shoes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="여성 신발"
+                android:background="@null"/>
+            <Button
+                android:id="@+id/botton_fashion_watch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="시계"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/botton_fashion_male_shoes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="남성 신발"
+                android:background="@null"/>
+            <Button
+                android:id="@+id/botton_fashion_jewelry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="쥬얼리"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/botton_fashion_underwear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="언더웨어"
+                android:background="@null"/>
+            <Button
+                android:id="@+id/botton_fashion_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:text="지갑"
+                android:background="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:layout_margin="5dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_weight="0.5">
+                <!--<ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tap_icon_beauty"/>-->
+                <Button
+                    android:id="@+id/tap_beauty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/btn_white"
+                    android:gravity="left"
+                    android:text="뷰티"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_weight="0.5">
+
+                <!--<ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tap_icon_pet"></ImageView>-->
+
+                <Button
+                    android:id="@+id/tap_pet"
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:background="@drawable/btn_white"
+                    android:text="반려용품"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:layout_margin="5dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_weight="0.5">
+                <!--<ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tap_icon_daily"/>-->
+                <Button
+                    android:id="@+id/tap_daily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/btn_white"
+                    android:gravity="left"
+                    android:text="생할용품"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_weight="0.5">
+<!--
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tap_icon_hobby"></ImageView>-->
+
+                <Button
+                    android:id="@+id/tap_hobby"
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:background="@drawable/btn_white"
+                    android:text="취미"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5"><!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_interior"/>-->
+            <Button
+                android:id="@+id/tap_interior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/btn_white"
+                android:gravity="left"
+                android:text="인테리어" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_instrument"></ImageView>-->
+
+            <Button
+                android:id="@+id/tap_instrument"
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:background="@drawable/btn_white"
+                android:text="악기"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+            <!--<ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_appliances"/>-->
+            <Button
+                android:id="@+id/tap_appliances"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/btn_white"
+                android:gravity="left"
+                android:text="가전제품" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_it"></ImageView>-->
+
+            <Button
+                android:id="@+id/tap_IT"
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:background="@drawable/btn_white"
+                android:text="IT"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5"><!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_car"/>-->
+            <Button
+                android:id="@+id/tap_car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/btn_white"
+                android:gravity="left"
+                android:text="차량/오토바이" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_sports"></ImageView>-->
+
+            <Button
+                android:id="@+id/tap_sports"
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:background="@drawable/btn_white"
+                android:text="스포츠/레저"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_travel"/>-->
+            <Button
+                android:id="@+id/tap_travel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/btn_white"
+                android:gravity="left"
+                android:text="여행" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_medical"></ImageView>-->
+
+            <Button
+                android:id="@+id/tap_medical"
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:background="@drawable/btn_white"
+                android:text="의료"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_culture"/>-->
+            <Button
+                android:id="@+id/tap_culture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/btn_white"
+                android:gravity="left"
+                android:text="문화" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+<!--
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_education"></ImageView>-->
+
+            <Button
+                android:id="@+id/tap_education"
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:background="@drawable/btn_white"
+                android:text="교육"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+            <!--<ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/tap_icon_book"/>-->
+            <Button
+                android:id="@+id/tap_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:background="@drawable/btn_white"
+                android:gravity="left"
+                android:text="도서" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                ></ImageView>
+
+            <Button
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:background="@drawable/btn_white"
+                android:text=""/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>
+

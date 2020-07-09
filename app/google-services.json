@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "954574880800",
+    "firebase_url": "https://ireview-c050e.firebaseio.com",
+    "project_id": "ireview-c050e",
+    "storage_bucket": "ireview-c050e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954574880800:android:3be349632ea45ec0147c45",
+        "android_client_info": {
+          "package_name": "com.flink.ireview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954574880800-6tm9h90c3qb9u57qfvsla4kjbelo1f50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flink.ireview",
+            "certificate_hash": "241383535305d4d16a4fadc59cca7babb386cacb"
+          }
+        },
+        {
+          "client_id": "954574880800-9bc1cb2ut973q8711rp78io2vu5tq105.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpNDfxqJDlkwHoSoEG-N8uB9UCVq-qra4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954574880800-9bc1cb2ut973q8711rp78io2vu5tq105.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

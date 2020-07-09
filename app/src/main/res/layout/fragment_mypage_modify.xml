@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:text="EXIT"
+            android:background="@null"
+            android:id="@+id/mypage_modify_exit"/>
+
+        <TextView
+            android:text="정보 수정"
+            android:textAlignment="center"
+            android:textColor="#2196F3"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+    </FrameLayout>
+
+
+
+    <TextView
+        android:text="프로필"
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:background="#56949394"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:id="@+id/mypage_modify_my_image"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:src="@drawable/profile_human"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:text="회원 정보 수정"
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:background="#56949394"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="이름"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/mypage_modify_my_name"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:text="닉네임"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:layout_width="80dp"
+            android:layout_height="60dp"/>
+
+        <EditText
+            android:id="@+id/mypage_modify_my_nickname"
+            android:layout_width="240dp"
+            android:layout_height="60dp" />
+        <Button
+            android:text="중복 확인"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:background="@null"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:text="연락처"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"/>
+
+        <EditText
+            android:id="@+id/mypage_modify_my_phonenumber"
+            android:layout_width="240dp"
+            android:layout_height="60dp"/>
+        <Button
+            android:text="인증 요청"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:background="@null"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:text="관심 카테고리"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_width="125dp"
+            android:layout_height="60dp"/>
+        <TextView
+            android:layout_width="195dp"
+            android:layout_height="60dp"/>
+        <Button
+            android:text="변경하기"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:background="@null"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:text="비밀번호"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+            <EditText
+                android:hint="현재 비밀번호"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+            <EditText
+                android:hint="새 비밀번호"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+            <EditText
+                android:hint="새 비밀번호 확인"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:text="저장"
+        android:background="@null"
+        android:id="@+id/mypage_modify_button"/>
+
+</LinearLayout>

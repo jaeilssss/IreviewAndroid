@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_main">
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.flink.ireview.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/nav_main"
+        android:name="com.flink.ireview.ui.Main.MainFragment"
+        android:label="@string/menu_main"
+        tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/nav_category"
+        android:name="com.flink.ireview.ui.Category.fragment_category"
+        android:label="@string/menu_category"
+        tools:layout="@layout/fragment_category" />
+
+    <fragment
+        android:id="@+id/nav_latest_viewd"
+        android:name="com.flink.ireview.ui.LatestViewd.fragment_latest_viewd"
+        android:label="@string/menu_latest_viewd"
+        tools:layout="@layout/fragment_latest_viewd" />
+
+    <fragment
+        android:id="@+id/nav_Recommended_viewd"
+        android:name="com.flink.ireview.ui.recommendated_review.fragment_recommendated_review"
+        android:label="@string/menu_recommendated_review"
+        tools:layout="@layout/fragment_recommendated_review" />
+
+    <fragment
+        android:id="@+id/nav_Event"
+        android:name="com.flink.ireview.ui.Event.Event"
+        android:label="Event"
+        tools:layout="@layout/fragment_event" />
+
+    <fragment
+        android:id="@+id/nav_Rangking"
+        android:name="com.flink.ireview.ui.Rangking.Rangking"
+        android:label="Rangking"
+        tools:layout="@layout/fragment_rangking" />
+
+
+    <fragment
+        android:id="@+id/nav_mypage"
+        android:name="com.flink.ireview.ui.MyPage.MyPageFragment"
+        android:label="@string/menu_mypage"
+        tools:layout="@layout/fragment_mypage" />
+
+    <fragment
+        android:id="@+id/nav_option"
+        android:name="com.flink.ireview.ui.Option.fragment_option"
+        android:label="@string/menu_option"
+        tools:layout="@layout/fragment_option" />
+
+    <fragment
+        android:id="@+id/nav_service_center"
+        android:name="com.flink.ireview.ui.service_center.fragment_service_center"
+        android:label="service_center"
+        tools:layout="@layout/fragment_service_center" />
+
+</navigation>

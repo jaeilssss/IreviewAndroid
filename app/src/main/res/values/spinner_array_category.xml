@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_array_category">
+        <item>category</item>
+        <item>IT</item>
+        <item>자동차</item>
+        <item>오토바이</item>
+        <item>화장품</item>
+        <item>식당</item>
+        <item>가전제품</item>
+        <item>생활용품</item>
+        <item>패션</item>
+        <item>식품</item>
+        <item>유아용품</item>
+        <item>장난감</item>
+        <item>의료</item>
+        <item>미용</item>
+        <item>레져</item>
+        <item>여행</item>
+        <item>교육</item>
+        <item>애완용품</item>
+        <item>도서</item>
+        <item>문화</item>
+        <item>악기</item>
+        <item>인테리어</item>
+
+
+
+
+    </string-array>
+</resources>
