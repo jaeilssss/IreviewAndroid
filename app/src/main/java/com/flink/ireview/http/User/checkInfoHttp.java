@@ -1,6 +1,5 @@
 package com.flink.ireview.http.User;
 
-import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -13,7 +12,7 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class LoginHttp {
+public class checkInfoHttp {
     private static final String Tag = "HttpSender";
     private static final String Url = "http://172.30.1.10:8089/";
     protected String apiName;
@@ -22,11 +21,9 @@ public class LoginHttp {
 
     String data;
     public void setBodyContents(Object... params) {
-        System.out.println("--------");
-        System.out.println(String.valueOf(params[0]));
-        // 스프링 부트는 account 를 username 으로 써야 인식됌!!!
-body = new FormEncodingBuilder().add("username",String.valueOf(params[0]))
-        .add("password",String.valueOf(params[1])).build();
+
+        body = new FormEncodingBuilder().add("username",String.valueOf(params[0]))
+                .add("password",String.valueOf(params[1])).build();
 
     }
     public String send(){
@@ -35,7 +32,7 @@ body = new FormEncodingBuilder().add("username",String.valueOf(params[0]))
                 @Override
                 protected String doInBackground(String... strings) {
                     OkHttpClient client = new OkHttpClient();
-                    apiName = "api/member/login";
+                    apiName = "api/member/myInfo/check/Info";
                     client.setConnectTimeout(10, TimeUnit.SECONDS);
                     Request request = new Request.Builder().url(Url + apiName).post(body).build();
                     System.out.println(Url + apiName);
@@ -58,9 +55,3 @@ body = new FormEncodingBuilder().add("username",String.valueOf(params[0]))
         return null;
     }
 }
-
-
-
-
-
-

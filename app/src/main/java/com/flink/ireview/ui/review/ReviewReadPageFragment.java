@@ -57,7 +57,7 @@ public class ReviewReadPageFragment extends Fragment {
     Button modify , delete,comment_submit;
     ReviewDao dao;
     UsersDto udto;
-    EditText comment, review_page_advantage, review_page_weakness;
+    TextView comment, review_page_advantage, review_page_weakness;
     ImageButton review_read_page_list;
     ArrayList<CommentDto> list;
     int i;

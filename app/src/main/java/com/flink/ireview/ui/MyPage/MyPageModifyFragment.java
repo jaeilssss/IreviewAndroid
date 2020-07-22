@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.flink.ireview.Dao.UsersDao;
+import com.flink.ireview.Dto.Member;
 import com.flink.ireview.Dto.UsersDto;
 import com.flink.ireview.R;
+import com.flink.ireview.http.User.MyInfoModifyHttp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -25,6 +28,12 @@ public class MyPageModifyFragment extends Fragment {
     EditText modify_name , modify_nickname , modify_phone , check_password;
     Button modify , exit ;
     UsersDto current_dto ;
+    Member member;
+
+    public MyPageModifyFragment(Member member) {
+        this.member = member;
+    }
+
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     public MyPageModifyFragment() {
         // Required empty public constructor
@@ -38,11 +47,11 @@ public class MyPageModifyFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_mypage_modify, container, false);
         modify_name = view.findViewById(R.id.mypage_modify_my_name);
-        modify_name.setText(current_dto.getUsers_name());
+        modify_name.setText(member.getName());
         modify_nickname = view.findViewById(R.id.mypage_modify_my_nickname);
-        modify_nickname.setText(current_dto.getUsers_nickname());
+        modify_nickname.setText(member.getNickName());
         modify_phone = view.findViewById(R.id.mypage_modify_my_phonenumber);
-        modify_phone.setText(current_dto.getUsers_phone_number());
+        modify_phone.setText(member.getPhoneNumber());
         modify = view.findViewById(R.id.mypage_modify_button);
         modify.setOnClickListener(onClickListener);
         exit = view.findViewById(R.id.mypage_modify_exit);
@@ -55,17 +64,23 @@ public class MyPageModifyFragment extends Fragment {
             switch (v.getId()){
                 case R.id.mypage_modify_button :
                     String name = modify_name.getText().toString();
-                    String password = check_password.getText().toString();
+//                    String password = check_password.getText().toString();
                     String nickname = modify_nickname.getText().toString();
                     String phone = modify_phone.getText().toString();
-                    UsersDto dto = new UsersDto(user.getUid(),user.getEmail(),name,phone,current_dto.getUsers_reliability(),nickname,current_dto.getMy_comment_list(),
-                            current_dto.getMy_review_list(),current_dto.getMy_scrap_list(),current_dto.getMy_recommend_list());
-                    UsersDao dao = new UsersDao(getContext(),getFragmentManager().beginTransaction());
-                    dao.modifyMyInfo(dto);
+                    MyInfoModifyHttp http = new MyInfoModifyHttp();
+                    http.setBodyContents(member.getId(),member.getAccount(),member.getPassword(),member.getEmail(),name,nickname,phone
+                            ,"11022-222-33",member.getYear(),"11",member.getDate(),member.getGender(),String.valueOf(member.getInterest1()),String.valueOf(member.getInterest2())
+                            ,String.valueOf(member.getInterest3()),String.valueOf(member.getInterest4()),String.valueOf(member.getInterest5()));
+                    Member newMember = http.send();
+                    if(newMember!=null){
+                        Toast.makeText(getContext(),"회원정보 수정이 완료 되었습니다",Toast.LENGTH_SHORT).show();
+                        Fragment fragment = new MyPageFragment(newMember);
+                        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_frame,fragment).commit();
+                    }
                     break;
                 case R.id.mypage_modify_exit :
-                    Fragment fragment = new MyPageFragment(current_dto);
-                    getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.nav_host_fragment,fragment).commit();
+                    Fragment fragment = new MyPageFragment(member);
+                    getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                     break;
             }
         }

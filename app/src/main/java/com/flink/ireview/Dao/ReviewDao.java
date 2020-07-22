@@ -99,7 +99,7 @@ public class ReviewDao {
                         System.out.println(documentReference.getId());
                         rdto.setReview_UID(documentReference.getId());  // <- 해당 게시글의 아이디를 dto에 저장함 실제 디비에는 저장되지 않음 이거 정말 중요함
                         Fragment fragment = new ReviewReadPageFragment(rdto,udto,new ArrayList<CommentDto>());
-                        fragmentTransaction.replace(R.id.nav_host_fragment,fragment).addToBackStack(null).commit();
+                        fragmentTransaction.replace(R.id.main_frame,fragment).addToBackStack(null).commit();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -123,7 +123,7 @@ public class ReviewDao {
             public void onSuccess(Void aVoid) {
                 Toast.makeText(mcontext,"수정을 완료 되었습니다", Toast.LENGTH_SHORT).show();
                 Fragment fragment = new fragment_category(member);
-                fragmentTransaction.addToBackStack(null).replace(R.id.nav_host_fragment,fragment).commit();
+                fragmentTransaction.addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                 // 다음은 일단 보류
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -145,7 +145,7 @@ public class ReviewDao {
             public void onSuccess(Void aVoid) {
                 Toast.makeText(mcontext,"삭제가 완료 되었습니다", Toast.LENGTH_SHORT).show();
                 Fragment fragment = new fragment_category(member);
-                fragmentTransaction.addToBackStack(null).replace(R.id.nav_host_fragment,fragment).commit();
+                fragmentTransaction.addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                 // 삭제 후 리뷰 리스트 로 이동!!
             }
         }).addOnFailureListener(new OnFailureListener() {

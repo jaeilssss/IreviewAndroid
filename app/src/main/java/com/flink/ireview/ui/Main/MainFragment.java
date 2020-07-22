@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.flink.ireview.Dto.Member;
 import com.flink.ireview.Dto.ReviewDto;
 import com.flink.ireview.Dto.UsersDto;
 import com.flink.ireview.Event_ViewPagerAdapter;
@@ -54,6 +55,14 @@ public class MainFragment extends Fragment {
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<ReviewDto> listItem = new ArrayList<>();
+    Member member ;
+
+    public MainFragment() {
+    }
+
+    public MainFragment(Member member) {
+        this.member = member;
+    }
 
     private FirebaseFirestore db  = FirebaseFirestore.getInstance();
     FragmentTransaction fragmentTransaction;

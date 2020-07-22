@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
 
 
         super.onCreate(savedInstanceState);
-
+    System.out.println("dd");
         setContentView(R.layout.activity_main);
 
         //뷰페이저 세팅 (메인프래그먼트로 옮김)
@@ -216,8 +216,9 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
                         setFrag(3);
                         break;
                     case R.id.action_mypage:
-                        if(member!=null)
-                            setFrag(5);
+                        if(member!=null){
+                            MyPageFragment = new MyPageFragment(member);
+                            setFrag(5);}
                         else{
                             Toast.makeText(getApplicationContext(),"로그인이 필요한 서비스입니다.", Toast.LENGTH_SHORT).show();
                             setFrag(4);}
@@ -231,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
         frag3 = new MainFragment();
         frag4 = new Frag4();
         frag5 = new LoginFragment();
-        MyPageFragment = new MyPageFragment();
+
 
         setFrag(2); // 첫프래그먼트 화면을 무엇으로 지정해줄 것인지 선택
 

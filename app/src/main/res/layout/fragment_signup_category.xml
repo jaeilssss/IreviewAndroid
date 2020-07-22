@@ -16,7 +16,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <TextView
+
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_width="12dp"
+                android:layout_height="48dp"
+                android:text="X"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="@null"
+                android:textColor="#6d7278"/>
+
+            <TextView
+                android:layout_width="93dp"
+                android:layout_height="48dp"
+                android:paddingLeft="26dp"
+                android:text="회원가입"
+                android:textColor="#6d7278"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#19000000"/>
+
+        <!--<TextView
             android:id="@+id/TextView_get"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,18 +56,21 @@
             android:layout_marginBottom="16dp"
             android:textSize="20sp"
             android:layout_above="@+id/TextView_2"
-            android:layout_toLeftOf="@+id/TextView_2"></TextView>
+            android:layout_toLeftOf="@+id/TextView_2"></TextView>-->
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="관심 있는 카테고리 5개를 선택하세요"
-            android:background="#eb88a0"
-            android:layout_marginBottom="16dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:paddingLeft="14sp"
+            android:text="관심 카테고리 5가지 선택해 주세요."
             android:textSize="20sp"
             android:layout_above="@+id/TextView_2"
             android:layout_toLeftOf="@+id/TextView_2"></TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="32dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -478,31 +512,34 @@
                 android:gravity="center"></TextView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:paddingTop="30dp"
-            android:paddingBottom="20dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="92dp"/>
 
 
             <Button
                 android:id="@+id/Signup_category_finish"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_width="328dp"
+                android:layout_height="40dp"
+                android:background="#6d7278"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
                 android:text="선택 완료"
                 />
 
-            <Button
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="26dp"/>
+
+            <!--<Button
                 android:id="@+id/Signup_category_cancle"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:text="취소"
-                />
-        </LinearLayout>
+                />-->
+
 
 
 

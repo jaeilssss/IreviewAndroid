@@ -19,6 +19,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.flink.ireview.Dao.UsersDao;
 import com.flink.ireview.Dto.Member;
 import com.flink.ireview.R;
+import com.flink.ireview.http.User.checkInfoHttp;
+import com.flink.ireview.http.User.checkNickNameHttp;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,10 +30,11 @@ import java.util.regex.Pattern;
 
 public class fragment_signup extends Fragment {
 
-    private Button signup , exit;
+    private Button signup , exit , checkNickname ,checkId;
+    boolean checknick=false , checkid=false;
     private CheckBox agree_all, agree_1, agree_2;
     private FragmentSignupViewModel mViewModel;
-    private EditText email , password , name , nickname , phone , repassword , year , date, month ;
+    private EditText email , password , name , nickname , phone , repassword , year , date, month ,account;
     View view;
     Spinner Spinner_singup_month;
     Spinner Spinner_singup_gender;
@@ -77,7 +80,12 @@ public class fragment_signup extends Fragment {
         signup.setOnClickListener(onClickListener);
         Spinner_singup_month = (Spinner)view.findViewById(R.id.Spinner_signup_month);
         String singup_month = Spinner_singup_month.getSelectedItem().toString();
-
+        checkNickname = view.findViewById(R.id.signup_check_nickname);
+        checkNickname.setOnClickListener(onClickListener);
+        nickname = view.findViewById(R.id.Signup_textView_nickname);
+        account =view.findViewById(R.id.Signup_textView_id);
+        checkId =view.findViewById(R.id.signup_check_id);
+        checkId.setOnClickListener(onClickListener);
         Spinner_singup_month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
@@ -98,7 +106,6 @@ public class fragment_signup extends Fragment {
         });
 
         agree_all = (CheckBox) view.findViewById(R.id.Signup_CheckBox_agree_all);
-//                    agree_all.setOnClickListener(this);
         agree_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,29 +120,6 @@ public class fragment_signup extends Fragment {
                 }
             }
         });
-
-
-        /*agree_all.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (agree_all.isChecked()) {
-                    System.out.println("ffffff");
-                    agree_1.setChecked(true);
-                    agree_2.setChecked(true);
-                }*//*else if(agree_1.isChecked() == true && agree_2.isChecked() == true){
-                    agree_all.setChecked(true);
-                }else if(agree_1.isChecked() == false || agree_2.isChecked() == false){
-                    agree_all.setChecked(false);
-                }*//*
-                else
-                {
-                    agree_1.setChecked(false);
-                    agree_2.setChecked(false);
-                }
-            }
-        });*/
-
-
         agree_1 = (CheckBox) view.findViewById(R.id.Signup_CheckBox_agree_1);
         agree_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,13 +144,6 @@ public class fragment_signup extends Fragment {
                 }
             }
         });
-
-                    /*if(agree_all.isChecked() == true){
-                        agree_1.isChecked() = true;
-                        agree_2.isChecked() = true;
-                    }*/
-
-
         return view;
     }
 
@@ -178,10 +155,6 @@ public class fragment_signup extends Fragment {
 
 
     }
-
-
-
-
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -195,7 +168,7 @@ public class fragment_signup extends Fragment {
                     String signup_repassword = repassword.getText().toString();
                     name = view.findViewById(R.id.Signup_textView_name);
                     String signup_name = name.getText().toString();
-                    nickname = view.findViewById(R.id.Signup_textView_nickname);
+
                     String signup_nickname = nickname.getText().toString();
                     phone = view.findViewById(R.id.Signup_textView_phone_number);
                     String signup_phone = phone.getText().toString();
@@ -273,9 +246,30 @@ public class fragment_signup extends Fragment {
                     }else{
                         Toast.makeText(getContext(),"비밀번호를 동일하게 입력해주세요", Toast.LENGTH_SHORT).show();
                     }
-
-
                     break;
+                case R.id.signup_check_nickname :
+                    String check = nickname.getText().toString();
+                    checkNickNameHttp http = new checkNickNameHttp();
+                    http.setBodyContents(check);
+                    if(http.send().equals("일치")){
+                        Toast.makeText(getContext(),"이미 존재하는 닉네임입니다",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getContext(),"사용 가능 닉네임입니다",Toast.LENGTH_SHORT).show();
+                        checknick = true;
+                    }
+                    break;
+                case R.id.signup_check_id :
+                    String check2 = account.getText().toString();
+                    checkInfoHttp http1 = new checkInfoHttp();
+                    http1.setBodyContents(check2,"null");
+                    if(http1.send().equals("일치")){
+                        Toast.makeText(getContext(),"이미 존재하는 아이디입니다",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getContext(),"사용 가능 아이디입니다",Toast.LENGTH_SHORT).show();
+                        checkid = true;
+                    }
+                    break;
+
             }
         }
     };
