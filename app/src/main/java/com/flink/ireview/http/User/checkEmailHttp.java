@@ -12,7 +12,7 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class checkInfoHttp {
+public class checkEmailHttp {
     private static final String Tag = "HttpSender";
     private static final String Url = "http://172.30.1.10:8080/";
     protected String apiName;
@@ -22,9 +22,7 @@ public class checkInfoHttp {
     String data;
     public void setBodyContents(Object... params) {
 
-        body = new FormEncodingBuilder().add("username",String.valueOf(params[0]))
-                .add("password",String.valueOf(params[1])).build();
-
+        body = new FormEncodingBuilder().add("email",String.valueOf(params[0])).build();
     }
     public String send(){
         try {
@@ -32,7 +30,7 @@ public class checkInfoHttp {
                 @Override
                 protected String doInBackground(String... strings) {
                     OkHttpClient client = new OkHttpClient();
-                    apiName = "api/member/myInfo/check/Info";
+                    apiName = "api/member/check/email";
                     client.setConnectTimeout(10, TimeUnit.SECONDS);
                     Request request = new Request.Builder().url(Url + apiName).post(body).build();
                     System.out.println(Url + apiName);

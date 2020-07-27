@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MyInfoModifyHttp {
    private static final String Tag = "HttpSender";
-    private static final String Url = "http://172.30.1.10:8089/";
+    private static final String Url = "http://172.30.1.10:8080/";
 
     protected String apiName;
 
@@ -40,11 +40,12 @@ public class MyInfoModifyHttp {
                 .add("birthMm",String.valueOf(params[9]))
                 .add("birthDd",String.valueOf(params[10]))
                 .add("gender",String.valueOf(params[11]))
-                .add("interest1",String.valueOf(params[12]))
-                .add("interest2",String.valueOf(params[13]))
-                .add("interest3",String.valueOf(params[14]))
-                .add("interest4",String.valueOf(params[15]))
-                .add("interest5",String.valueOf(params[16]))
+                .add("status",String.valueOf(params[12]))
+                .add("interest1",String.valueOf(params[13]))
+                .add("interest2",String.valueOf(params[14]))
+                .add("interest3",String.valueOf(params[15]))
+                .add("interest4",String.valueOf(params[16]))
+                .add("interest5",String.valueOf(params[17]))
                 .build();
     }
     public Member send(){
@@ -68,7 +69,7 @@ public class MyInfoModifyHttp {
 
                             member = new Member(String.valueOf(jsonObject1.get("account")),String.valueOf(jsonObject1.get("password")),String.valueOf(jsonObject1.get("email")),String.valueOf(jsonObject1.get("name"))
                                     ,String.valueOf(jsonObject1.get("nick_name")),String.valueOf(jsonObject1.get("phone_number")),String.valueOf(jsonObject1.get("birth_yy")),String.valueOf(jsonObject1.get("birth_mm")),String.valueOf(jsonObject1.get("birth_dd"))
-                                    ,String.valueOf(jsonObject1.get("gender")));
+                                    ,String.valueOf(jsonObject1.get("gender")),String.valueOf(jsonObject1.get("status")));
                             member.setId(Long.valueOf(String.valueOf(jsonObject1.get("id"))));
                             return member;
 

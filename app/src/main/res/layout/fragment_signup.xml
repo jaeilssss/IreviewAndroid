@@ -11,20 +11,6 @@
         android:orientation="vertical"
         android:paddingTop="16dp"
         >
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/text_login"-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="1dp"-->
-        <!--        android:layout_marginStart="8dp"-->
-        <!--        android:layout_marginTop="8dp"-->
-        <!--        android:layout_marginEnd="8dp"-->
-        <!--        android:textAlignment="center"-->
-        <!--        android:textSize="20sp"-->
-        <!--        android:text="dddddcccccccccccd"-->
-        <!--/>-->
-
-
         <LinearLayout
             android:layout_width="360dp"
             android:layout_height="48dp"
@@ -54,16 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#19000000"/>
-        <!--<TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SING UP"
-            android:layout_marginBottom="16dp"
-            android:textColor="#eb88a0"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:gravity="center"> </TextView>-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,6 +190,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/signup_check_email"
                 android:text="중복확인"
                 android:background="@null"
                 android:layout_weight="0.05"></Button>

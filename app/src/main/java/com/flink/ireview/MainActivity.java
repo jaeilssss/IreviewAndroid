@@ -373,27 +373,27 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
         ft = fm.beginTransaction();
         switch (n){
             case 0:
-                ft.replace(R.id.main_frame, frag1);
+                ft.addToBackStack(null).replace(R.id.main_frame, frag1);
                 ft.commit();
                 break;
             case 1:
-                ft.replace(R.id.main_frame, frag2);
+                ft.addToBackStack(null).replace(R.id.main_frame, frag2);
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.main_frame, frag3);
+                ft.addToBackStack(null).replace(R.id.main_frame, frag3);
                 ft.commit();
                 break;
             case 3:
-                ft.replace(R.id.main_frame, frag4);
+                ft.addToBackStack(null).replace(R.id.main_frame, frag4);
                 ft.commit();
                 break;
             case 4:
-                ft.replace(R.id.main_frame, frag5);
+                ft.addToBackStack(null).replace(R.id.main_frame, frag5);
                 ft.commit();
                 break;
             case 5:
-                ft.replace(R.id.main_frame, MyPageFragment);
+                ft.addToBackStack(null).replace(R.id.main_frame, MyPageFragment);
                 ft.commit();
                 break;
         }

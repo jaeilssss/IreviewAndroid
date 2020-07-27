@@ -73,7 +73,7 @@ public class MainFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.fragment_main, container, false);
+        view = inflater.inflate(R.layout.fragment_main, container, false);
 //뷰페이저
         ViewPager viewpager = view.findViewById(R.id.main_event_viewPager);
         event_viewPagerAdapter = new Event_ViewPagerAdapter(getChildFragmentManager());

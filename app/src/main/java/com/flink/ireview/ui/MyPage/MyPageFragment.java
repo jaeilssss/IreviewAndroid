@@ -68,11 +68,11 @@ public class MyPageFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_mypage, container, false);
 
 
-        setInfo();
 
         mypage_modify_page= view.findViewById(R.id.mypage_modify_page);
         mypage_modify_page.setOnClickListener(onClickListener);
-
+        my_nickname = view.findViewById(R.id.my_nickname);
+        my_nickname.setText(member.getNickName());
 //        mypage_modify_password_page = view.findViewById(R.id.mypage_modify_password_page);
 //
 //        mypage_modify_password_page.setOnClickListener(onClickListener);
@@ -138,7 +138,7 @@ public class MyPageFragment extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 usersDto = new UsersDto();
                 usersDto = documentSnapshot.toObject(UsersDto.class);
-                my_nickname = view.findViewById(R.id.my_nickname);
+
                 my_nickname.setText(usersDto.getUsers_nickname());
                 my_review_number = view.findViewById(R.id.my_review_number);
                 my_comment_number = view.findViewById(R.id.reply_number);

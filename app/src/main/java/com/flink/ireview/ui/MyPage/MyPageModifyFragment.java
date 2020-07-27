@@ -69,7 +69,7 @@ public class MyPageModifyFragment extends Fragment {
                     String phone = modify_phone.getText().toString();
                     MyInfoModifyHttp http = new MyInfoModifyHttp();
                     http.setBodyContents(member.getId(),member.getAccount(),member.getPassword(),member.getEmail(),name,nickname,phone
-                            ,"11022-222-33",member.getYear(),"11",member.getDate(),member.getGender(),String.valueOf(member.getInterest1()),String.valueOf(member.getInterest2())
+                            ,"11022-222-33",member.getYear(),member.getMonth(),member.getDate(),member.getGender(),member.getStatus(),String.valueOf(member.getInterest1()),String.valueOf(member.getInterest2())
                             ,String.valueOf(member.getInterest3()),String.valueOf(member.getInterest4()),String.valueOf(member.getInterest5()));
                     Member newMember = http.send();
                     if(newMember!=null){

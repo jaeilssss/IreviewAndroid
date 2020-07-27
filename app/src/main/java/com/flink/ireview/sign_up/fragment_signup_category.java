@@ -78,11 +78,6 @@ CheckBox checkBox[];
         checkBox[19].setOnCheckedChangeListener(onCheckedChangeListener);
         checkBox[20].setOnCheckedChangeListener(onCheckedChangeListener);
 
-
-
-
-
-
         Button category_finish = (Button)view.findViewById(R.id.Signup_category_finish);
         category_finish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,14 +90,14 @@ CheckBox checkBox[];
                     checkCategory();
                     SignUpHttp http = new SignUpHttp();
                     http.setBodyContents(udto.getAccount(),udto.getPassword(),udto.getEmail(),udto.getName(),udto.getNickName(),udto.getPhoneNumber()
-                    ,"11022-222-33",udto.getYear(),"11",udto.getDate(),udto.getGender(),String.valueOf(interests.get(0)),String.valueOf(interests.get(1))
+                    ,"11022-222-33",udto.getYear(),udto.getMonth(),udto.getDate(),udto.getGender(),String.valueOf(interests.get(0)),String.valueOf(interests.get(1))
                     ,String.valueOf(interests.get(2)),String.valueOf(interests.get(3)),String.valueOf(interests.get(4)));
                     if(http.send().equals("success")){
                         Toast.makeText(getContext(), "가입이 완료되었습니다", Toast.LENGTH_SHORT).show();
                         Fragment fragment = new LoginFragment();
                         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                     }else{
-                        Toast.makeText(getContext(),"가입을 실패 했습니다error",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"가입을 실패 했습니다",Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -141,7 +136,7 @@ CheckBox checkBox[];
         for(int i =0 ; i<30 ; i++){
             // 일단 30개로 해놓음!!!
 
-            check.add(0);
+            check.add(-1);
         }
         count=0;
     }
@@ -151,230 +146,229 @@ CheckBox checkBox[];
             switch (compoundButton.getId()){
                 case R.id.check_fashion :
 
-                    if(check.get(0)==0){
-                        check.set(0,1);
+                    if(check.get(0)==0-1){
+                        check.set(0,0);
                         count++;
                 }else{
-
-                        check.set(0,0);
+                        check.set(0,-1);
                         count--;
                     }
                     break;
                 case R.id.check_cosmetic :
 
-                    if(check.get(1)==0){
+                    if(check.get(1)==-1){
                         check.set(1,1);
                         count++;
                     }else{
 
-                        check.set(1,0);
+                        check.set(1,-1);
                         count--;
                     }
                     break;
                 case R.id.check_life :
 
-                    if(check.get(2)==0){
-                        check.set(2,1);
+                    if(check.get(2)==-1){
+                        check.set(2,2);
                         count++;
                     }else{
 
-                        check.set(2,0);
+                        check.set(2,-1);
                         count--;
                     }
                     break;
                 case R.id.check_interior :
 
-                    if(check.get(3)==0){
-                        check.set(3,1);
+                    if(check.get(3)==-1){
+                        check.set(3,3);
                         count++;
                     }else{
 
-                        check.set(3,0);
+                        check.set(3,-1);
                         count--;
                     }
                     break;
                 case R.id.check_appliance :
 
-                    if(check.get(4)==0){
-                        check.set(4,1);
+                    if(check.get(4)==-1){
+                        check.set(4,4);
                         count++;
                     }else{
 
-                        check.set(4,0);
+                        check.set(4,-1);
                         count--;
                     }
                     break;
                 case R.id.check_it :
 
-                    if(check.get(5)==0){
-                        check.set(5,1);
+                    if(check.get(5)==-1){
+                        check.set(5,5);
                         count++;
                     }else{
 
-                        check.set(5,0);
+                        check.set(5,-1);
                         count--;
                     }
                     break;
                 case R.id.check_car :
 
-                    if(check.get(6)==0){
-                        check.set(6,1);
+                    if(check.get(6)==-1){
+                        check.set(6,6);
                         count++;
                     }else{
 
-                        check.set(6,0);
+                        check.set(6,-1);
                         count--;
                     }
                     break;
                 case R.id.check_leisure :
 
-                    if(check.get(7)==0){
-                        check.set(7,1);
+                    if(check.get(7)==-1){
+                        check.set(7,7);
                         count++;
                     }else{
 
-                        check.set(7,0);
+                        check.set(7,-1);
                         count--;
                     }
                     break;
                 case R.id.check_travel :
 
-                    if(check.get(8)==0){
-                        check.set(8,1);
+                    if(check.get(8)==-1){
+                        check.set(8,8);
                         count++;
                     }else{
 
-                        check.set(8,0);
+                        check.set(8,-1);
                         count--;
                     }
                     break;case R.id.check_medical :
 
-                    if(check.get(9)==0){
-                        check.set(9,1);
+                    if(check.get(9)==-1){
+                        check.set(9,9);
                         count++;
                     }else{
 
-                        check.set(9,0);
+                        check.set(9,-1);
                         count--;
                     }
                     break;case R.id.check_culture :
 
-                    if(check.get(10)==0){
-                        check.set(10,1);
+                    if(check.get(10)==-1){
+                        check.set(10,10);
                         count++;
                     }else{
 
-                        check.set(10,0);
+                        check.set(10,-1);
                         count--;
                     }
                     break;
                 case R.id.check_education :
 
-                    if(check.get(11)==0){
-                        check.set(11,1);
+                    if(check.get(11)==-1){
+                        check.set(11,11);
                         count++;
                     }else{
 
-                        check.set(11,0);
+                        check.set(11,-1);
                         count--;
                     }
                     break;
                     case R.id.check_book :
 
-                    if(check.get(12)==0){
-                        check.set(12,1);
+                    if(check.get(12)==-1){
+                        check.set(12,12);
                         count++;
                     }else{
 
-                        check.set(12,0);
+                        check.set(12,-1);
                         count--;
                     }
                     break;
                 case R.id.check_baby_products :
 
-                    if(check.get(13)==0){
-                        check.set(13,1);
+                    if(check.get(13)==-1){
+                        check.set(13,13);
                         count++;
                     }else{
 
-                        check.set(13,0);
+                        check.set(13,-1);
                         count--;
                     }
                     break;
                 case R.id.check_mate_products :
 
-                    if(check.get(14)==0){
-                        check.set(14,1);
+                    if(check.get(14)==-1){
+                        check.set(14,14);
                         count++;
                     }else{
 
-                        check.set(14,0);
+                        check.set(14,-1);
                         count--;
                     }
                     break;
                 case R.id.check_beauty :
 
-                    if(check.get(15)==0){
-                        check.set(15,1);
+                    if(check.get(15)==-1){
+                        check.set(15,15);
                         count++;
                     }else{
 
-                        check.set(15,0);
+                        check.set(15,-1);
                         count--;
                     }
                     break;
                 case R.id.check_instrument :
 
-                    if(check.get(16)==0){
-                        check.set(16,1);
+                    if(check.get(16)==-1){
+                        check.set(16,16);
                         count++;
                     }else{
 
-                        check.set(16,0);
+                        check.set(16,-1);
                         count--;
                     }
                     break;
                 case R.id.check_autobicycle :
 
-                    if(check.get(17)==0){
-                        check.set(17,1);
+                    if(check.get(17)==-1){
+                        check.set(17,17);
                         count++;
                     }else{
 
-                        check.set(17,0);
+                        check.set(17,-1);
                         count--;
                     }
                     break;
                 case R.id.check_restaurant :
 
-                    if(check.get(18)==0){
-                        check.set(18,1);
+                    if(check.get(18)==-1){
+                        check.set(18,18);
                         count++;
                     }else{
 
-                        check.set(18,0);
+                        check.set(18,-1);
                         count--;
                     }
                     break;
                 case R.id.check_food :
 
-                    if(check.get(19)==0){
-                        check.set(19,1);
+                    if(check.get(19)==-1){
+                        check.set(19,19);
                         count++;
                     }else{
 
-                        check.set(19,0);
+                        check.set(19,-1);
                         count--;
                     }
                     break;
                 case R.id.check_toy :
 
-                    if(check.get(20)==0){
-                        check.set(20,1);
+                    if(check.get(20)==-1){
+                        check.set(20,20);
                         count++;
                     }else{
 
-                        check.set(20,0);
+                        check.set(20,-1);
                         count--;
                     }
                     break;
@@ -383,30 +377,10 @@ CheckBox checkBox[];
 
         }
     };
-
-    //체크가 되면 1, 안되면 0 // 1,1 1,0 // 2,1 2,0 //
-
-    public void clickable(){
-        if(count==5){
-            for(int i = 0 ; i<6; i++){
-
-            }
-        }else{
-            for(int  i = 0 ; i <6 ; i++){
-                checkBox[i].setClickable(true);
-            }
-        }
-
-
-
-// 체크 한 카테고리 조사 메소드
-
-
-    }
     public void checkCategory(){
         interests = new ArrayList<>();
             for(int i = 0 ; i<check.size() ; i++){
-                if(check.get(i)==1){
+                if(check.get(i)!=-1){
                     interests.add(check.get(i)+1);
                 }
             }

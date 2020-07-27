@@ -6,6 +6,14 @@ public class Member {
 
     private Long id;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     private String account;
 
     private String password;
@@ -25,6 +33,8 @@ public class Member {
     private String date;
 
     private String gender;
+
+    private String status;
 
     private int interest1;
 
@@ -164,7 +174,7 @@ public class Member {
         this.interest5 = interest5;
     }
 
-    public Member(String account, String password, String email, String name, String nickName, String phoneNumber, String year, String month, String date, String gender) {
+    public Member(String account, String password, String email, String name, String nickName, String phoneNumber, String year, String month, String date, String gender,String status) {
         this.account = account;
         this.password = password;
         this.email = email;
@@ -175,5 +185,6 @@ public class Member {
         this.month = month;
         this.date = date;
         this.gender = gender;
+        this.status = status;
     }
 }

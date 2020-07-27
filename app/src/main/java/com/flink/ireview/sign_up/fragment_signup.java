@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.flink.ireview.Dao.UsersDao;
 import com.flink.ireview.Dto.Member;
 import com.flink.ireview.R;
+import com.flink.ireview.http.User.checkEmailHttp;
 import com.flink.ireview.http.User.checkInfoHttp;
 import com.flink.ireview.http.User.checkNickNameHttp;
 
@@ -30,9 +31,11 @@ import java.util.regex.Pattern;
 
 public class fragment_signup extends Fragment {
 
-    private Button signup , exit , checkNickname ,checkId;
-    boolean checknick=false , checkid=false;
+    private Button signup , exit , checkNickname ,checkId,checkEmail;
+    private boolean checknick=false , checkid=false , checkemail= false;
     private CheckBox agree_all, agree_1, agree_2;
+    private String currentId,currentNick,currentEmail;
+    private String signup_email,signup_nickname,signup_id;
     private FragmentSignupViewModel mViewModel;
     private EditText email , password , name , nickname , phone , repassword , year , date, month ,account;
     View view;
@@ -63,9 +66,6 @@ public class fragment_signup extends Fragment {
     String current_month = format2.format(time);
     String current_date = format3.format(time);
     ///////////////////////////
-
-
-    UsersDao dao;
     public static fragment_signup newInstance() {
         return new fragment_signup();
     }
@@ -73,7 +73,9 @@ public class fragment_signup extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        checkemail=false;
+        checkid = false;
+        checknick=false;
 
         view= inflater.inflate(R.layout.fragment_signup, container, false);
         signup = view.findViewById(R.id.Signup_signup_button);
@@ -84,8 +86,11 @@ public class fragment_signup extends Fragment {
         checkNickname.setOnClickListener(onClickListener);
         nickname = view.findViewById(R.id.Signup_textView_nickname);
         account =view.findViewById(R.id.Signup_textView_id);
+        email = view.findViewById(R.id.Signup_textView_user_email);
         checkId =view.findViewById(R.id.signup_check_id);
         checkId.setOnClickListener(onClickListener);
+        checkEmail = view.findViewById(R.id.signup_check_email);
+        checkEmail.setOnClickListener(onClickListener);
         Spinner_singup_month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
@@ -160,8 +165,8 @@ public class fragment_signup extends Fragment {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.Signup_signup_button :
-                    email = view.findViewById(R.id.Signup_textView_user_email);
-                    String signup_email = email.getText().toString();
+                signup_id = account.getText().toString();
+                 signup_email = email.getText().toString();
                     password = view.findViewById(R.id.Signup_textView_password);
                     String signup_password = password.getText().toString();
                     repassword = view.findViewById(R.id.Signup_textView_repassword);
@@ -169,7 +174,7 @@ public class fragment_signup extends Fragment {
                     name = view.findViewById(R.id.Signup_textView_name);
                     String signup_name = name.getText().toString();
 
-                    String signup_nickname = nickname.getText().toString();
+                     signup_nickname = nickname.getText().toString();
                     phone = view.findViewById(R.id.Signup_textView_phone_number);
                     String signup_phone = phone.getText().toString();
                     year = view.findViewById(R.id.signup_year);
@@ -179,6 +184,7 @@ public class fragment_signup extends Fragment {
 
 
                     String signup_month = Spinner_singup_month.getSelectedItem().toString();
+                    System.out.println(signup_month);
                     String gender = Spinner_singup_gender.getSelectedItem().toString();
 
                     Matcher matcher_symbol = pattern_symbol.matcher(signup_password);
@@ -230,16 +236,17 @@ public class fragment_signup extends Fragment {
                             Toast.makeText(getContext(), "생년월일을 확인해 주세요", Toast.LENGTH_SHORT).show();
                         }else if(agree_1.isChecked() == false || agree_2.isChecked() == false){
                             Toast.makeText(getContext(), "이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요", Toast.LENGTH_SHORT).show();
+                        }else if(checkid==false || !signup_id.equals(currentId)){
+                            Toast.makeText(getContext(),"아이디 중복확인이 필요합니다",Toast.LENGTH_SHORT).show();
+                        }else if(checknick==false|| !signup_nickname.equals(currentNick)){
+                            Toast.makeText(getContext(),"닉네임 중복확인이 필요합니다",Toast.LENGTH_SHORT).show();
+                        }else if(checkemail==false || !signup_email.equals(currentEmail)){
+                            Toast.makeText(getContext(),"이메일 중복확인이 필요합니다",Toast.LENGTH_SHORT).show();
                         }
-
                         else{
-//                             dao = new UsersDao(getContext(),getFragmentManager().beginTransaction());
-//                             UsersDto dto = new UsersDto(null , signup_email,signup_name,signup_phone,0,signup_nickname,signup_year,month,,new ArrayList<String>(),new ArrayList<String>(),new ArrayList<String>(),new ArrayList<Map<String, String>>());
-//                             dao.setUsersDto(dto);
-//                             dao.join(signup_email,signup_password);
+                            System.out.println(checkemail);
                             Member usersDto = new Member(signup_email,signup_password,signup_email,signup_name,signup_nickname,
-                                    signup_phone,signup_year,signup_month,signup_date,gender);
-
+                                    signup_phone,signup_year,signup_month,signup_date,gender,"user");
                             Fragment fragment = new fragment_signup_category(usersDto);
                             getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                         }
@@ -248,25 +255,40 @@ public class fragment_signup extends Fragment {
                     }
                     break;
                 case R.id.signup_check_nickname :
-                    String check = nickname.getText().toString();
+
+                    currentNick = nickname.getText().toString();
                     checkNickNameHttp http = new checkNickNameHttp();
-                    http.setBodyContents(check);
+                    http.setBodyContents(currentNick);
                     if(http.send().equals("일치")){
                         Toast.makeText(getContext(),"이미 존재하는 닉네임입니다",Toast.LENGTH_SHORT).show();
+                        checknick=false;
                     }else{
                         Toast.makeText(getContext(),"사용 가능 닉네임입니다",Toast.LENGTH_SHORT).show();
                         checknick = true;
                     }
                     break;
                 case R.id.signup_check_id :
-                    String check2 = account.getText().toString();
+                    currentId = account.getText().toString();
                     checkInfoHttp http1 = new checkInfoHttp();
-                    http1.setBodyContents(check2,"null");
+                    http1.setBodyContents(currentId,"null");
                     if(http1.send().equals("일치")){
                         Toast.makeText(getContext(),"이미 존재하는 아이디입니다",Toast.LENGTH_SHORT).show();
+                        checkid=false;
                     }else{
-                        Toast.makeText(getContext(),"사용 가능 아이디입니다",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"사용 가능한 아이디입니다",Toast.LENGTH_SHORT).show();
                         checkid = true;
+                    }
+                    break;
+                case R.id.signup_check_email :
+                    currentEmail = email.getText().toString();
+                    checkEmailHttp http2 = new checkEmailHttp();
+                    http2.setBodyContents(currentEmail);
+                    if(http2.send().equals("일치")){
+                        Toast.makeText(getContext(),"이미 존재하는 이메일입니다",Toast.LENGTH_SHORT).show();
+                        checkemail=false;
+                    }else{
+                        Toast.makeText(getContext(),"사용 가능한 이메일 입니다",Toast.LENGTH_SHORT).show();
+                        checkemail=true;
                     }
                     break;
 

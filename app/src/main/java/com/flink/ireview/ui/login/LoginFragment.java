@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.flink.ireview.Dao.UsersDao;
 import com.flink.ireview.Dto.Member;
 import com.flink.ireview.R;
+import com.flink.ireview.find_id.find_id_password;
 import com.flink.ireview.find_id.fragment_find_id;
 import com.flink.ireview.find_password.fragment_find_password;
 import com.flink.ireview.http.User.LoginHttp;
@@ -67,7 +68,9 @@ public class LoginFragment extends Fragment {
 
         Button button1= (Button)root.findViewById(R.id.Button_find_id);
         View view1 = root.findViewById(R.id.find_id_page);
-        final Fragment fragment1 = new fragment_find_id();
+//        final Fragment fragment1 = new fragment_find_id();
+        final Fragment fragment1 = new find_id_password();
+
         button1.setOnClickListener(new TextView.OnClickListener() {
             @Override
             public void onClick(View view1) {
@@ -111,7 +114,6 @@ public class LoginFragment extends Fragment {
             switch (v.getId()){
                 case R.id.Button_Login :
                     if(account.getText().toString().length()>0 && password.getText().toString().length()>6){
-//                        dao.login(email.getText().toString(),password.getText().toString());
                         LoginHttp http = new LoginHttp();
                         http.setBodyContents(account.getText().toString(),password.getText().toString());
                         String data = http.send();
@@ -125,7 +127,6 @@ public class LoginFragment extends Fragment {
                             if(member==null){
                                 Toast.makeText(getContext(),"error",Toast.LENGTH_SHORT).show();
                             }else{
-//                                data = "환경합니다 "+member.getNickName() +"님";
                                 Toast.makeText(getContext(),data,Toast.LENGTH_SHORT).show();
                                 onMyListener.onReceivedData(member);
                                 Fragment fragment = new MainFragment();
