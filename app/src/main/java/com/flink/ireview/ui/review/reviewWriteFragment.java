@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.flink.ireview.Dao.ReviewDao;
+import com.flink.ireview.Dto.Member;
 import com.flink.ireview.Dto.ReviewDto;
 import com.flink.ireview.Dto.UsersDto;
 import com.flink.ireview.R;
@@ -58,6 +60,7 @@ public class reviewWriteFragment extends Fragment {
     private static final int PICK_FROM_ALBUM = 1;
     private static final int PICK_FROM_CAMERA = 2;
     private File tempFile;
+    private Member member;
     private String fileSource;
     private ImageButton imageButton;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -72,8 +75,8 @@ public class reviewWriteFragment extends Fragment {
     Uri photoUri;
     View root;
 
-    public reviewWriteFragment(UsersDto dto) {
-        this.dto = dto;
+    public reviewWriteFragment(Member member) {
+        this.member = member;
     }
 
     public reviewWriteFragment() {
@@ -81,7 +84,6 @@ public class reviewWriteFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
 
         root = inflater.inflate(R.layout.fragment_review_write_page, container, false);
         reviewWriteViewModel =

@@ -67,6 +67,7 @@ public class fragment_category extends Fragment {
         view = inflater.inflate(R.layout.fragment_category, container, false);
         if(member!=null){
             Toast.makeText(getContext(),"닉네임 : "+member.getNickName(),Toast.LENGTH_SHORT).show();
+            setReviewList();
         }
         recyclerView = (RecyclerView)view.findViewById(R.id.rv_category_tree);
         gridLayoutManager = new GridLayoutManager(getContext(), 2);
@@ -83,31 +84,21 @@ public class fragment_category extends Fragment {
 
         categorytreeAdapter.notifyDataSetChanged();
 
-
-
-
-        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
-            System.out.println("여기!");
-            setMyInfo();
-            user = FirebaseAuth.getInstance().getCurrentUser();
-        }else{
-            setReviewList();
-        }
         fragmentTransaction = getFragmentManager().beginTransaction();
         write = view.findViewById(R.id.review_write_button);
         dto = new UsersDto();
-        final Fragment fragment = new reviewWriteFragment(dto);
+        final Fragment fragment = new reviewWriteFragment(member);
         write.setOnClickListener(new TextView.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                if(member==null){
                     Toast.makeText(getContext(),"회원만 이용 가능 합니다!!", Toast.LENGTH_SHORT).show();
 
                 }else{
                     FragmentManager fragmentManager = getFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.replace(R.id.nav_host_fragment,fragment).commit();
+                    fragmentTransaction.replace(R.id.main_frame,fragment).commit();
                 }
             }
         });
@@ -115,13 +106,6 @@ public class fragment_category extends Fragment {
         return view;
     }
 
-    //    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        mViewModel = ViewModelProviders.of(this).get(FragmentCategoryViewModel.class);
-//        // TODO: Use the ViewModel
-//
-//    }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -131,7 +115,7 @@ public class fragment_category extends Fragment {
                         Toast.makeText(getContext(),"회원만 이용 가능 합니다!!", Toast.LENGTH_SHORT).show();
                         break;
                     }else{
-                        Fragment fragment = new reviewWriteFragment(dto);
+                        Fragment fragment = new reviewWriteFragment(member);
                         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.nav_host_fragment,fragment).commit();
                         break;
                     }
@@ -179,19 +163,6 @@ public class fragment_category extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 dto = documentSnapshot.toObject(UsersDto.class);
                 setReviewList();
-            }
-        });
-    }
-    public void setMyinfoGoToRevieWrite(){
-        // 이게 사실은 우리 플젝 구조상 dao 클래스에 들어가 있는게 맞지만 네비게이션은 해당 dao 메소드로 못들어가서 일단 여기에 둠
-        db.collection("users").document(user.getEmail())
-                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                dto = documentSnapshot.toObject(UsersDto.class);
-                Fragment fragment = new reviewWriteFragment(dto);
-                fragmentTransaction.addToBackStack(null).replace(R.id.nav_host_fragment,fragment).commit();
-
             }
         });
     }
