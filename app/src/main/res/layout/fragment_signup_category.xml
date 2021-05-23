@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_signup_category"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.review.ReviewReadPageFragment"
-    android:orientation="vertical">ㅠ
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <!--    <중요!!></중요>-->
-    <!--    이거 밑에 이미지 뷰 를 다 체크박스로 수정 할 경우 꼭!!!!!! -->
-    <!--    나한테(재일) 한테 말해주세요 !!!!!@@@@@@@#@#@#@#@#ㅠㅠㅠㅠㅠㅠㅠㅠ-->
 
 
     <LinearLayout
@@ -23,21 +22,20 @@
             android:orientation="horizontal"
             android:layout_gravity="center">
 
-            <Button
-                android:layout_width="12dp"
+            <ImageButton
+                android:layout_width="25dp"
                 android:layout_height="48dp"
-                android:text="X"
-                android:textSize="18dp"
                 android:gravity="center"
-                android:background="@null"
-                android:textColor="#6d7278"/>
+                android:src="@drawable/back_button"
+                android:background="@null"/>
 
             <TextView
-                android:layout_width="93dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:paddingLeft="26dp"
-                android:text="회원가입"
-                android:textColor="#6d7278"
+                android:text="관심 카테고리"
+                android:textColor="#262626"
                 android:textSize="18sp"/>
 
         </LinearLayout>
@@ -58,19 +56,24 @@
             android:layout_above="@+id/TextView_2"
             android:layout_toLeftOf="@+id/TextView_2"></TextView>-->
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:gravity="center"
-            android:paddingLeft="14sp"
+            android:paddingLeft="16dp"
             android:text="관심 카테고리 5가지 선택해 주세요."
-            android:textSize="20sp"
+            android:textColor="#262626"
+            android:textSize="16sp"
             android:layout_above="@+id/TextView_2"
             android:layout_toLeftOf="@+id/TextView_2"></TextView>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="32dp"/>
+            android:layout_height="22dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,60 +81,71 @@
             android:orientation="horizontal"
             android:weightSum="0.9">
             <CheckBox
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/clothes"
-                android:gravity="center"
                 android:id="@+id/check_fashion"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_fashion"
                 android:layout_weight="0.3"> </CheckBox>
 
             <CheckBox
-                android:layout_width="100dp"
+                android:id="@+id/check_medical"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_cosmetic"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
+                android:layout_weight="0.3"
+                android:button="@drawable/chk_health"
+                android:src="@drawable/clothes"></CheckBox>
+
             <CheckBox
-                android:layout_width="100dp"
+                android:id="@+id/check_beauty"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:id="@+id/check_life"
-                android:gravity="center"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
+                android:layout_weight="0.3"
+                android:button="@drawable/chk_beauty"
+                android:src="@drawable/clothes"></CheckBox>
+
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="0.9">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
+            android:weightSum="0.9"
+            android:paddingTop="20dp">
+
+            <CheckBox
+                android:id="@+id/check_culture"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:layout_weight="0.3"
-                android:text="패션"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:button="@drawable/chk_culture"
+                android:gravity="center"
+                android:src="@drawable/clothes"></CheckBox>
+
+            <CheckBox
+                android:id="@+id/check_life"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:layout_weight="0.3"
-                android:text="화장품"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:button="@drawable/chk_life"
+                android:gravity="center"
+                android:src="@drawable/clothes"></CheckBox>
+
+            <CheckBox
+                android:id="@+id/check_education"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:layout_weight="0.3"
-                android:text="생활용품"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
+                android:button="@drawable/chk_education"
+                android:gravity="center"
+                android:src="@drawable/clothes"></CheckBox>
         </LinearLayout>
 
 
@@ -141,15 +155,27 @@
             android:orientation="horizontal"
             android:weightSum="0.9"
             android:paddingTop="20dp">
+
             <CheckBox
+                android:id="@+id/check_interior"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_interior"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
+                android:layout_weight="0.3"
+                android:button="@drawable/chk_interial"
+                android:gravity="center"
+                android:src="@drawable/clothes"></CheckBox>
+
+            <CheckBox
+                android:id="@+id/check_book"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.3"
+                android:button="@drawable/chk_book"
+                android:gravity="center"
+                android:src="@drawable/clothes"></CheckBox>
+
             <CheckBox
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
@@ -157,8 +183,27 @@
                 android:gravity="center"
                 android:id="@+id/check_appliance"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_appliances"
                 android:layout_weight="0.3"> </CheckBox>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="0.9"
+            android:paddingTop="20dp">
+
+            <CheckBox
+                android:id="@+id/check_baby_products"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="0.3"
+                android:button="@drawable/chk_baby"
+                android:gravity="center"
+                android:src="@drawable/clothes"></CheckBox>
+
             <CheckBox
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
@@ -166,35 +211,17 @@
                 android:gravity="center"
                 android:id="@+id/check_it"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_it"
                 android:layout_weight="0.3"> </CheckBox>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="0.9">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="인테리어"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="가전제품"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.3"
-                android:text="IT"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clothes"
+                android:gravity="center"
+                android:id="@+id/check_mate_products"
+                android:layout_marginBottom="16dp"
+                android:button="@drawable/chk_pet"
+                android:layout_weight="0.3"> </CheckBox>
         </LinearLayout>
 
         <LinearLayout
@@ -210,7 +237,17 @@
                 android:gravity="center"
                 android:id="@+id/check_car"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_car"
+                android:layout_weight="0.3"> </CheckBox>
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clothes"
+                android:gravity="center"
+                android:id="@+id/check_hobby"
+                android:layout_marginBottom="16dp"
+                android:button="@drawable/chk_hobby"
                 android:layout_weight="0.3"> </CheckBox>
             <CheckBox
                 android:layout_width="100dp"
@@ -219,170 +256,11 @@
                 android:gravity="center"
                 android:id="@+id/check_leisure"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_sport"
                 android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_travel"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="0.9">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="13dp"
-                android:layout_weight="0.3"
-                android:gravity="center"
-                android:text="자동차"
-                android:textSize="20dp"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="레저"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.3"
-                android:text="여행"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="0.9"
-            android:paddingTop="20dp">
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_medical"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_culture"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_education"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="0.9">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="의료"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="문화"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.3"
-                android:text="교육"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="0.9"
-            android:paddingTop="20dp">
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_book"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_baby_products"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_mate_products"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="0.9">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="도서"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="유아용품"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.3"
-                android:text="반려용품"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-        </LinearLayout>
 
 
         <LinearLayout
@@ -391,15 +269,6 @@
             android:orientation="horizontal"
             android:weightSum="0.9"
             android:paddingTop="20dp">
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_beauty"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
             <CheckBox
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
@@ -407,114 +276,32 @@
                 android:gravity="center"
                 android:id="@+id/check_instrument"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_music"
                 android:layout_weight="0.3"> </CheckBox>
+
             <CheckBox
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/clothes"
                 android:gravity="center"
-                android:id="@+id/check_autobicycle"
+                android:id="@+id/check_travel"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
+                android:button="@drawable/chk_travel"
                 android:layout_weight="0.3"> </CheckBox>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="0.9">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="미용"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="악기"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.3"
-                android:text="오토바이"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="0.9"
-            android:paddingTop="20dp">
-            <CheckBox
+            <View
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
                 android:gravity="center"
-                android:id="@+id/check_restaurant"
                 android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_food"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
-            <CheckBox
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clothes"
-                android:gravity="center"
-                android:id="@+id/check_toy"
-                android:layout_marginBottom="16dp"
-                android:button="@drawable/chk_clothes"
-                android:layout_weight="0.3"> </CheckBox>
+                android:layout_weight="0.3"> </View>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="0.9">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="식당"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.3"
-                android:text="식품"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.3"
-                android:text="장난감"
-                android:textSize="20dp"
-                android:gravity="center"></TextView>
-        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="92dp"/>
+            android:layout_height="32dp"/>
 
 
             <Button

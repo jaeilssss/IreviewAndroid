@@ -3,7 +3,9 @@ package com.flink.ireview.find_id;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -33,10 +35,10 @@ public class find_id_password extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_find_id_password, container, false);
-
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         //뷰페이저 세팅
         ViewPager viewPager = view.findViewById(R.id.find_vp);
-        fragmentPagerAdapter = new Find_ViewPagerAdapter(getChildFragmentManager());
+        fragmentPagerAdapter = new Find_ViewPagerAdapter(getChildFragmentManager(),fragmentTransaction);
 
         TabLayout tabLayout = view.findViewById(R.id.tab_find);
         viewPager.setAdapter(fragmentPagerAdapter);

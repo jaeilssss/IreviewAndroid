@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/recomment_photo"
+            android:src="@drawable/profile_human"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recomment_nickname"
+            android:text="username"
+            android:textSize="12sp"
+            android:textColor="#262626"
+            android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="2020.10.13"
+                android:id="@+id/recomment_date"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <EditText
+        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:id="@+id/recomment_content"
+        android:text="동해물과 백두산이 마르고 닳도록"
+        android:textColor="#676767"
+        android:textSize="16sp"
+        android:background="@null"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+<!--        <ImageView-->
+<!--            android:clickable="true"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:id="@+id/recomment_like_button"-->
+<!--            android:src="@drawable/btn_thumsup"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="좋아요"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:id="@+id/recomment_like_number"-->
+<!--            android:text="18"-->
+<!--            android:textSize="16sp"/>-->
+
+        <TextView
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:visibility="invisible"
+            android:id="@+id/recomment_modify_button"
+            android:textSize="16sp"
+            android:text="수정"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:id="@+id/recomment_delete_button"
+            android:visibility="invisible"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="삭제"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#C3C3C3"/>
+
+</LinearLayout>

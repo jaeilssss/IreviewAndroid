@@ -9,26 +9,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="16dp"
         >
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/text_login"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="1dp"-->
+        <!--        android:layout_marginStart="8dp"-->
+        <!--        android:layout_marginTop="8dp"-->
+        <!--        android:layout_marginEnd="8dp"-->
+        <!--        android:textAlignment="center"-->
+        <!--        android:textSize="20sp"-->
+        <!--        android:text="dddddcccccccccccd"-->
+        <!--/>-->
+
+
         <LinearLayout
             android:layout_width="360dp"
             android:layout_height="48dp"
             android:orientation="horizontal"
             android:layout_gravity="center">
             
-            <Button
-                android:layout_width="12dp"
-                android:layout_height="22dp"
-                android:text="X"
-                android:textSize="18dp"
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:background="@null"
+                android:src="@drawable/back_button"
                 android:textColor="#6d7278"/>
             
             <TextView
-                android:layout_width="93dp"
-                android:layout_height="27dp"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
                 android:paddingLeft="26dp"
                 android:text="회원가입"
                 android:textColor="#6d7278"
@@ -40,31 +53,59 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#19000000"/>
-        <LinearLayout
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="SING UP"
+            android:layout_marginBottom="16dp"
+            android:textColor="#eb88a0"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:gravity="center"> </TextView>-->
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+
+        <TextView
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="기본 정보"
+            android:textSize="14sp"
+            android:textColor="#262626"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:orientation="horizontal"
             android:weightSum="1"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
-            <EditText
-                android:id="@+id/Signup_textView_id"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_weight="0.95"
-                android:background="@null"
-                android:hint="아이디" />
+                android:layout_weight="0.95">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Signup_textView_id"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:hint="아이디"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/signup_check_id"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.05"
-                android:background="@null"
                 android:text="중복확인"
-                android:textSize="14sp"></Button>
+                android:textSize="14sp"
+                android:id="@+id/signup_check_id"
+                android:background="@null"
+                android:layout_weight="0.05"></Button>
         </LinearLayout>
 
         <View
@@ -72,59 +113,95 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
 
-
-            <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Signup_textView_password"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:hint="비밀번호"
+                android:layout_width="300dp"
+                android:password="true"
+                android:layout_height="30dp"
                 android:background="@null"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"/>
+                android:hint="비밀번호"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <View
             android:layout_width="380dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
-            <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Signup_textView_repassword"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="비밀번호 확인"
-                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:password="true"
                 android:background="@null"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"/>
+                android:hint="비밀번호 확인"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <View
             android:layout_width="match_parent"
             android:layout_height="16dp"
             android:background="#19000000"/>
 
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+
+        <TextView
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="개인 정보"
+            android:textSize="14sp"
+            android:textColor="#262626"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:orientation="horizontal"
             android:weightSum="1">
 
-            <EditText
-                android:id="@+id/Signup_textView_nickname"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:hint="닉네임"
-                android:background="@null"
-                android:layout_weight="0.95"/>
+                android:layout_weight="0.95">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Signup_textView_nickname"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:hint="닉네임"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="중복확인"
                 android:id="@+id/signup_check_nickname"
                 android:background="@null"
@@ -146,23 +223,35 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
 
-        <EditText
-            android:id="@+id/Signup_textView_name"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="이름"
+        <com.google.android.material.textfield.TextInputLayout
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:background="@null"
-            android:layout_gravity="center" />
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Signup_textView_name"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:hint="이름"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <View
             android:layout_width="380dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
         <!--<TextView
             android:id="@+id/Signup_nickname"
@@ -180,16 +269,24 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
-            <EditText
-                android:id="@+id/Signup_textView_user_email"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="이메일"
-                android:background="@null"
-                android:layout_weight="0.95"></EditText>
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.95">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Signup_textView_user_email"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:hint="이메일"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/signup_check_email"
                 android:text="중복확인"
                 android:background="@null"
@@ -198,9 +295,14 @@
         </LinearLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
+
 
         <!--<TextView
             android:id="@+id/Signup_id"
@@ -243,20 +345,25 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:orientation="horizontal"
-            android:weightSum="1"
-            android:paddingBottom="0dp">
+            android:weightSum="1">
 
-            <EditText
-                android:id="@+id/Signup_textView_phone_number"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:hint="휴대폰 번호"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:background="@null"
-                android:layout_weight="0.95"></EditText>
+                android:layout_weight="0.95">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Signup_textView_phone_number"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:hint="휴대폰 번호"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="인증하기"
                 android:background="@null"
                 android:textSize="14sp"
@@ -268,6 +375,9 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -277,17 +387,23 @@
             android:orientation="horizontal"
             android:weightSum="1">
 
-            <EditText
-                android:id="@+id/Signup_textView_phone_number_confirm"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:hint="인증번호"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:background="@null"
-                android:layout_weight="0.95"></EditText>
+                android:layout_weight="0.95">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Signup_textView_phone_number_confirm"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:hint="인증번호"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="확인"
                 android:background="@null"
                 android:textSize="14sp"
@@ -295,39 +411,44 @@
         </LinearLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:text="생년월일"
                 android:textSize="16sp"></TextView>
 
             <EditText
                 android:layout_width="100dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/signup_year"
                 android:hint="년"
                 />
+
             <Spinner
                 android:id="@+id/Spinner_signup_month"
-                android:entries="@array/spinner_array_month"
                 android:layout_width="100dp"
-                android:layout_height="48dp"
-                />
+                android:layout_height="wrap_content"
+                android:entries="@array/spinner_array_month" />
 
             <EditText
                 android:layout_width="100dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/signup_date"
                 android:hint="일"
                 />
@@ -338,25 +459,28 @@
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="55dp"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:text="성별"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/Spinner_singup_gender"
-                android:entries="@array/spinner_array_gender"
                 android:layout_width="100dp"
-                android:layout_height="48dp" />
+                android:layout_height="wrap_content"
+                android:entries="@array/spinner_array_gender" />
 
         </LinearLayout>
 
@@ -364,6 +488,19 @@
             android:layout_width="match_parent"
             android:layout_height="16dp"
             android:background="#19000000"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+
+        <TextView
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="약관"
+            android:textSize="14sp"
+            android:textColor="#262626"/>
 
         <!--<TextView
             android:layout_width="match_parent"
@@ -431,10 +568,7 @@
             </LinearLayout>
 
         </LinearLayout>
-
-
-
-
+        
             <Button
                 android:id="@+id/Signup_signup_button"
                 android:layout_width="328dp"

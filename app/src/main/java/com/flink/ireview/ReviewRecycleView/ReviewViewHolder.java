@@ -11,13 +11,15 @@ import com.flink.ireview.R;
 
 public class ReviewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-  TextView title1;
+  TextView title1,name;
   ImageView imageView1;
   ReviewAdapter reviewAdapter ;
     public ReviewViewHolder(@NonNull View itemView, ReviewAdapter reviewAdapter) {
         super(itemView);
+
         this.reviewAdapter = reviewAdapter;
         title1 = itemView.findViewById(R.id.review_list_title1);
+        name = itemView.findViewById(R.id.review_list_name);
         imageView1 = itemView.findViewById(R.id.review_list_image1);
 
         imageView1.setOnClickListener(this);

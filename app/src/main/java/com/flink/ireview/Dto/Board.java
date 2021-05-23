@@ -8,7 +8,10 @@ public class Board {
     private String title;
     private String contentString;
     private String userAccount;
-    // private Long userId;
+     private Long userId;
+
+
+
     private String userNickname;
     private Integer totalView;
     private Integer totalRecommend;
@@ -22,28 +25,52 @@ public class Board {
     private String image6;
     private String image7;
     private String image8;
-    private ArrayList<String> goodness;
-    private ArrayList<String> badness;
     private Long scrapCount;
+    private String createdDate;
+    private String productName;
 
-    public ArrayList<String> getGoodness() {
-        return goodness;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setGoodness(ArrayList<String> goodness) {
-        this.goodness = goodness;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public ArrayList<String> getBadness() {
-        return badness;
+    public Board(int category_id, String title, String content_string, String user_account, String user_nickname, int total_view, int total_recommend, int total_comment, boolean manage_board, String image1, String image2, String image3, String image4, String image5, String image6, String image7, String image8, String created_date) {
+        this.categoryId = category_id;
+        this.title = title;
+        this.contentString = content_string;
+        this.userAccount = user_account;
+        this.userNickname = user_nickname;
+        this.totalView = total_view;
+        this.totalRecommend = total_recommend;
+        this.totalComment = total_comment;
+        this.manageBoard = manage_board;
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
+        this.image4 = image4;
+        this.image5 = image5;
+        this.image6 = image6;
+        this.image7 = image7;
+        this.image8 = image8;
+        this.createdDate = created_date;
     }
 
-    public void setBadness(ArrayList<String> badness) {
-        this.badness = badness;
+    public String getCreatedDate() {
+        return createdDate;
     }
 
-    public Board(Long id, Integer categoryId, String title, String contentString, String userAccount, String userNickname, Integer totalView, Integer totalRecommend, Integer totalComment, boolean manageBoard, String image1, String image2, String image3, String image4, String image5, String image6, String image7, String image8, Long scrapCount) {
-        this.id = id;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+
+    public Board() {
+    }
+
+    public Board(Integer categoryId, String title, String contentString, String userAccount, String userNickname, Integer totalView, Integer totalRecommend, Integer totalComment, boolean manageBoard, String image1, String image2, String image3, String image4, String image5, String image6, String image7, String image8, Long scrapCount, String createdDate) {
         this.categoryId = categoryId;
         this.title = title;
         this.contentString = contentString;
@@ -62,6 +89,7 @@ public class Board {
         this.image7 = image7;
         this.image8 = image8;
         this.scrapCount = scrapCount;
+        this.createdDate = createdDate;
     }
 
     public Long getId() {
@@ -214,5 +242,12 @@ public class Board {
 
     public void setScrapCount(Long scrapCount) {
         this.scrapCount = scrapCount;
+    }
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

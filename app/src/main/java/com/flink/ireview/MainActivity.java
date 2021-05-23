@@ -3,7 +3,9 @@ package com.flink.ireview;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,9 +30,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.flink.ireview.Dao.UsersDao;
 import com.flink.ireview.Dto.Member;
 import com.flink.ireview.find_password.fragment_find_password;
+import com.flink.ireview.interfaces.goToNewFrag;
 import com.flink.ireview.interfaces.transmissionListener;
 import com.flink.ireview.sign_up.fragment_signup;
 import com.flink.ireview.ui.Category.fragment_category;
+import com.flink.ireview.ui.Category.selectCategoryFragment;
 import com.flink.ireview.ui.FragmentSearchViewModel;
 import com.flink.ireview.ui.Main.MainFragment;
 import com.flink.ireview.ui.MyPage.MyPageFragment;
@@ -50,20 +54,33 @@ import com.flink.ireview.sign_up.*;
 
 import io.opencensus.tags.Tag;
 
-public class MainActivity extends AppCompatActivity implements transmissionListener {
+public class MainActivity extends AppCompatActivity implements transmissionListener , goToNewFrag {
 
     // private Event_ViewPagerAdapter event_viewPagerAdapter;
     public void onReceivedData(Object data){
         this.member  = (Member)data;
     }
-    private Member member =null;
+
+    @Override
+    public FragmentTransaction goToFrag(Fragment fragment) {
+            return ft;
+    }
+
+    @Override
+    public Member getData() {
+        return member;
+    }
+
+
+    private Member member = null;
     private BottomNavigationView bottomNavigationView; //바텀 네비게이션 뷰
     private FragmentManager fm;
     private FragmentTransaction ft;
     private Frag1 frag1;
-    private Frag2 frag2;
+    private reviewWriteFragment frag2;
     private MainFragment frag3;
     private Frag4 frag4;
+    private selectCategoryFragment frag6;
     private LoginFragment frag5;
     private Fragment fragment_clothes;
     private fragment_category fragment_category;
@@ -74,28 +91,18 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
     private DrawerLayout drawerLayout;
     private View drawerView;
 
-    private Button tap_clothes, tap_baby, tap_beauty, tap_pet, tap_daily, tap_hobby, tap_interior, tap_instrument, tap_appliances, tap_IT, tap_car, tap_sports, tap_travel;
-    private Button tap_medical, tap_culture, tap_education, tap_book, drawer_login, drawer_join;
-
     int count =0;
     private LinearLayout botton_fashion;
-    private Button botton_fashion_female_clothes, botton_fashion_kids_clothes, botton_fashion_male_clothes, botton_fashion_bag, botton_fashion_female_shoes,
-            botton_fashion_watch, botton_fashion_male_shoes, botton_fashion_jewelry, botton_fashion_underwear, botton_fashion_wallet;
-
 
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseUser user ;
     UsersDao dao;
     private String TAG;
-
     @Override
     protected void onCreate (Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
-    System.out.println("dd");
         setContentView(R.layout.activity_main);
-
         //뷰페이저 세팅 (메인프래그먼트로 옮김)
 
         //ViewPager viewpager = findViewById(R.id.main_event_viewPager);
@@ -105,166 +112,55 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
         // viewpager.setAdapter(event_viewPagerAdapter);
         //  tabLayout.setupWithViewPager(viewpager);
 
-        tap_clothes = findViewById(R.id.tap_clothes);
-        tap_clothes.setOnClickListener(onClickListener);
-
-        botton_fashion = findViewById(R.id.botton_fashion);
-
-        botton_fashion_female_clothes = findViewById(R.id.botton_fashion_female_clothes);
-        botton_fashion_female_clothes.setOnClickListener(onClickListener);
-
-        botton_fashion_kids_clothes = findViewById(R.id.botton_fashion_kids_clothes);
-        botton_fashion_kids_clothes.setOnClickListener(onClickListener);
-
-        botton_fashion_male_clothes = findViewById(R.id.botton_fashion_male_clothes);
-        botton_fashion_male_clothes.setOnClickListener(onClickListener);
-
-        botton_fashion_bag = findViewById(R.id.botton_fashion_bag);
-        botton_fashion_bag.setOnClickListener(onClickListener);
-
-        botton_fashion_female_shoes = findViewById(R.id.botton_fashion_female_shoes);
-        botton_fashion_female_shoes.setOnClickListener(onClickListener);
-
-        botton_fashion_watch = findViewById(R.id.botton_fashion_watch);
-        botton_fashion_watch.setOnClickListener(onClickListener);
-
-        botton_fashion_male_shoes = findViewById(R.id.botton_fashion_male_shoes);
-        botton_fashion_male_shoes.setOnClickListener(onClickListener);
-
-        botton_fashion_jewelry = findViewById(R.id.botton_fashion_jewelry);
-        botton_fashion_jewelry.setOnClickListener(onClickListener);
-
-        botton_fashion_underwear = findViewById(R.id.botton_fashion_underwear);
-        botton_fashion_underwear.setOnClickListener(onClickListener);
-
-        botton_fashion_wallet = findViewById(R.id.botton_fashion_wallet);
-        botton_fashion_wallet.setOnClickListener(onClickListener);
-
-        tap_baby = findViewById(R.id.tap_baby);
-        tap_baby.setOnClickListener(onClickListener);
-
-        tap_beauty = findViewById(R.id.tap_beauty);
-        tap_beauty.setOnClickListener(onClickListener);
-
-        tap_pet = findViewById(R.id.tap_pet);
-        tap_pet.setOnClickListener(onClickListener);
-
-        tap_daily = findViewById(R.id.tap_daily);
-        tap_daily.setOnClickListener(onClickListener);
-
-        tap_hobby = findViewById(R.id.tap_hobby);
-        tap_hobby.setOnClickListener(onClickListener);
-
-        tap_interior = findViewById(R.id.tap_interior);
-        tap_interior.setOnClickListener(onClickListener);
-
-        tap_instrument = findViewById(R.id.tap_instrument);
-        tap_instrument.setOnClickListener(onClickListener);
-
-        tap_appliances = findViewById(R.id.tap_appliances);
-        tap_appliances.setOnClickListener(onClickListener);
-
-        tap_IT = findViewById(R.id.tap_IT);
-        tap_IT.setOnClickListener(onClickListener);
-
-        tap_car = findViewById(R.id.tap_car);
-        tap_car.setOnClickListener(onClickListener);
-
-        tap_sports = findViewById(R.id.tap_sports);
-        tap_sports.setOnClickListener(onClickListener);
-
-        tap_travel = findViewById(R.id.tap_travel);
-        tap_travel.setOnClickListener(onClickListener);
-
-        tap_medical = findViewById(R.id.tap_medical);
-        tap_medical.setOnClickListener(onClickListener);
-
-        tap_culture = findViewById(R.id.tap_culture);
-        tap_culture.setOnClickListener(onClickListener);
-
-        tap_education = findViewById(R.id.tap_education);
-        tap_education.setOnClickListener(onClickListener);
-
-        tap_book = findViewById(R.id.tap_book);
-        tap_book.setOnClickListener(onClickListener);
-
-        drawer_login = findViewById(R.id.drawer_login);
-        drawer_login.setOnClickListener(onClickListener);
-
-        drawer_join = findViewById(R.id.drawer_join);
-        drawer_join.setOnClickListener(onClickListener);
-
-
-
         //여기
         bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.action_category:
-                        drawerLayout.openDrawer(drawerView);
-//                        setFragg(0);
+//                        drawerLayout.openDrawer(drawerView);
+                        setFrag(0);
                         break;
-                    case R.id.action_ranking:
+                    case R.id.action_write:
+                        frag2 = new reviewWriteFragment(member,-1);
                         setFrag(1);
                         break;
                     case R.id.action_home:
                         setFrag(2);
                         break;
                     case R.id.action_alarm:
-                        setFrag(3);
+                        Toast.makeText(getApplicationContext(),"아직 이용하실 수 없습니다",Toast.LENGTH_SHORT).show();
+//                        setFrag(3);
                         break;
                     case R.id.action_mypage:
-                        if(member!=null){
+                        if (member != null) {
                             MyPageFragment = new MyPageFragment(member);
-                            setFrag(5);}
-                        else{
-                            Toast.makeText(getApplicationContext(),"로그인이 필요한 서비스입니다.", Toast.LENGTH_SHORT).show();
-                            setFrag(4);}
+                            setFrag(5);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "로그인이 필요한 서비스입니다.", Toast.LENGTH_SHORT).show();
+                            setFrag(4);
+                        }
                         break;
                 }
                 return true;
             }
         });
         frag1 = new Frag1();
-        frag2 = new Frag2();
         frag3 = new MainFragment();
         frag4 = new Frag4();
         frag5 = new LoginFragment();
 
 
+
         setFrag(2); // 첫프래그먼트 화면을 무엇으로 지정해줄 것인지 선택
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        drawerView = (View)findViewById(R.id.drawer);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerView = (View) findViewById(R.id.drawer);
 
-        /*Button btn_open = (Button)findViewById(R.id.btn_open);
-        btn_open.setOnClickListener(new View.OnClickListener() {
-            @Override
-            //열려라 참깨를 누르면 네비게이션이 열린다
-            public void onClick(View v) {
-                drawerLayout.openDrawer(drawerView);
-            }
-        });*/
 
-        Button btn_close = (Button)findViewById(R.id.btn_close);
-        btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.closeDrawers();
-            }
-        });
 
-        drawerLayout.setDrawerListener(listener);
-        drawerView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
         //여기까지
-
         final Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -296,90 +192,27 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
                     }
                 });
 
-
-
-        /*final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId())
-                {
-                    case R.id.nav_login:
-                        startActivity(intent);
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                       // menuItem.setTitle("로그아웃");
-                        break;
-                    case R.id.nav_main:
-//                        Fragment fragment = new MainFragment();
-//                        replaceFragment(fragment);
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-                    case R.id.nav_category:
-                        startActivity(intent);
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-                    case R.id.nav_latest_viewd:
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-                    case R.id.nav_Recommended_viewd:
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-                    case R.id.nav_Event:
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-                    case R.id.nav_Rangking:
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-
-                        case R.id.nav_mypage :
-                       if(FirebaseAuth.getInstance().getCurrentUser()==null){
-                           Toast.makeText(getApplicationContext(),"회원만 이용가능합니다", Toast.LENGTH_SHORT).show();
-                       }else{
-                           NavigationUI.onNavDestinationSelected(menuItem,navController);
-
-                       }
-                            break;
-                    case R.id.nav_option:
-                        Toast.makeText(getApplicationContext(), "옵션", Toast.LENGTH_SHORT).show();
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-
-                    case R.id.nav_service_center:
-                        Toast.makeText(getApplicationContext(), "서비스 센터", Toast.LENGTH_SHORT).show();
-                        NavigationUI.onNavDestinationSelected(menuItem,navController);
-                        break;
-                }
-                DrawerLayout drawer = findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });*/
-
     }
-
-
     //여기부터
     private void setFrag(int n){
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         switch (n){
             case 0:
-                ft.addToBackStack(null).replace(R.id.main_frame, frag1);
+                frag6 = new selectCategoryFragment(member);
+                ft.addToBackStack(null).replace(R.id.main_frame, frag6);
                 ft.commit();
                 break;
             case 1:
-                ft.addToBackStack(null).replace(R.id.main_frame, frag2);
-                ft.commit();
-                break;
+                if(member==null){
+                    Toast.makeText(getApplicationContext(),"로그인 후 이용가능합니다!",Toast.LENGTH_SHORT);
+                    break;
+                }else{
+                    ft.addToBackStack(null).replace(R.id.main_frame, frag2);
+                    ft.commit();
+                    break;
+                }
+
             case 2:
                 ft.addToBackStack(null).replace(R.id.main_frame, frag3);
                 ft.commit();
@@ -660,6 +493,8 @@ public class MainActivity extends AppCompatActivity implements transmissionListe
             super.onBackPressed();
         }
     }
+
+
 
     /*View.OnClickListener onClickListener2 = new View.OnClickListener() {
         @Override

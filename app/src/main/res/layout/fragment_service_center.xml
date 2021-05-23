@@ -5,46 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="고객센터"
-        android:textAlignment="center"
-        android:textColor="#2196F3"
-        android:textSize="25dp"
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/mypage_modify_exit"
+            android:layout_width="25dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:src="@drawable/back_button"
+            android:background="@null"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingLeft="26dp"
+            android:text="고객센터"
+            android:textColor="#262626"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        android:layout_height="1dp"
+        android:background="#19000000"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="15dp">
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
         <TextView
             android:id="@+id/service_center_1"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#262626"
             android:text="이용약관"
-            android:textSize="20dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="60dp"/>
+            android:layout_height="1dp"
+            android:background="#19000000"/>
 
         <TextView
             android:id="@+id/service_center_2"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#262626"
             android:text="FAQ"
-            android:textSize="20dp"
+            android:layout_width="60dp"
+            android:layout_height="80dp"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="60dp"/>
+            android:layout_height="1dp"
+            android:background="#19000000"/>
 
         <TextView
-            android:id="@+id/service_center_13"
+            android:id="@+id/service_center_3"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#262626"
             android:text="문의하기"
-            android:textSize="20dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="60dp"/>
+            android:layout_height="1dp"
+            android:background="#19000000"/>
 
         <TextView
             android:id="@+id/service_center_notice"
-            android:text="공지사항 중요할 것 같은데 밖으로 빼는게 어떤지"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"/>
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#262626"
+            android:text="공지사항"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
     </LinearLayout>
 
 

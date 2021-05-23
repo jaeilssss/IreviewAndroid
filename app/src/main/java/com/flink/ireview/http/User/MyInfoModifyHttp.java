@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MyInfoModifyHttp {
    private static final String Tag = "HttpSender";
-    private static final String Url = "http://172.30.1.10:8080/";
+    private static final String Url = "http://11.12.11.111:8081/";
 
     protected String apiName;
 
@@ -28,6 +28,7 @@ public class MyInfoModifyHttp {
     String data;
 
     public void setBodyContents(Object... params) {
+
         body = new FormEncodingBuilder().add("id",String.valueOf(params[0]))
                 .add( "account", String.valueOf(params[1]))
                 .add("password", String.valueOf(params[2]))
@@ -46,6 +47,7 @@ public class MyInfoModifyHttp {
                 .add("interest3",String.valueOf(params[15]))
                 .add("interest4",String.valueOf(params[16]))
                 .add("interest5",String.valueOf(params[17]))
+                .add("sumNailImage",String.valueOf(params[18]))
                 .build();
     }
     public Member send(){
@@ -64,16 +66,22 @@ public class MyInfoModifyHttp {
                             String data = response.body().string();
                             System.out.println(data);
                             JSONArray jsonArray = new JSONArray(data);
-//                        System.out.println("length : " + jsonArray.length());
                             JSONObject jsonObject1 = jsonArray.getJSONObject(0);
 
                             member = new Member(String.valueOf(jsonObject1.get("account")),String.valueOf(jsonObject1.get("password")),String.valueOf(jsonObject1.get("email")),String.valueOf(jsonObject1.get("name"))
                                     ,String.valueOf(jsonObject1.get("nick_name")),String.valueOf(jsonObject1.get("phone_number")),String.valueOf(jsonObject1.get("birth_yy")),String.valueOf(jsonObject1.get("birth_mm")),String.valueOf(jsonObject1.get("birth_dd"))
-                                    ,String.valueOf(jsonObject1.get("gender")),String.valueOf(jsonObject1.get("status")));
+                                    ,String.valueOf(jsonObject1.get("gender")),String.valueOf(jsonObject1.get("status")),String.valueOf(jsonObject1.get("sumnail_image")));
                             member.setId(Long.valueOf(String.valueOf(jsonObject1.get("id"))));
+                            member.setInterest1(Integer.parseInt(String.valueOf(jsonObject1.get("interest1"))));
+                            member.setInterest2(Integer.parseInt(String.valueOf(jsonObject1.get("interest2"))));
+
+                            member.setInterest3(Integer.parseInt(String.valueOf(jsonObject1.get("interest3"))));
+
+                            member.setInterest4(Integer.parseInt(String.valueOf(jsonObject1.get("interest4"))));
+
+                            member.setInterest5(Integer.parseInt(String.valueOf(jsonObject1.get("interest5"))));
                             return member;
 
-////                            Log.e(Tag, "result : " + data);
                         }catch(JSONException e){
                             Log.e(Tag, "result : JSONerror");
                             return null;

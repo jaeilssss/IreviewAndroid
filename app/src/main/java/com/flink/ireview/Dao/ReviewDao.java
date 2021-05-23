@@ -88,25 +88,26 @@ public class ReviewDao {
     }
 
     public void write(final ReviewDto rdto, String cagtegory, final UsersDto udto){
-        db.collection("category")
-                .document(cagtegory)
-                .collection("review")
-                .add(rdto)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(mcontext,"작성을 완료 되었습니다", Toast.LENGTH_SHORT).show();
-                        System.out.println(documentReference.getId());
-                        rdto.setReview_UID(documentReference.getId());  // <- 해당 게시글의 아이디를 dto에 저장함 실제 디비에는 저장되지 않음 이거 정말 중요함
-                        Fragment fragment = new ReviewReadPageFragment(rdto,udto,new ArrayList<CommentDto>());
-                        fragmentTransaction.replace(R.id.main_frame,fragment).addToBackStack(null).commit();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(mcontext,"작성을 실패 했습니다", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        db.collection("category")
+//                .document(cagtegory)
+//                .collection("review")
+//                .add(rdto)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Toast.makeText(mcontext,"작성을 완료 되었습니다", Toast.LENGTH_SHORT).show();
+//                        System.out.println(documentReference.getId());
+//                        rdto.setReview_UID(documentReference.getId());  // <- 해당 게시글의 아이디를 dto에 저장함 실제 디비에는 저장되지 않음 이거 정말 중요함
+//                        Fragment fragment = new ReviewReadPageFragment(rdto,udto,new ArrayList<CommentDto>());
+//                        fragmentTransaction.replace(R.id.main_frame,fragment).addToBackStack(null).commit();
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(mcontext,"작성을 실패 했습니다", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
     }
     public void modify(ReviewDto rdto){
         db.collection("category")
@@ -188,6 +189,7 @@ public class ReviewDao {
                             list = new ArrayList<>();
                             for(QueryDocumentSnapshot document: task.getResult()) {
                                 Map<String, Object> map = document.getData();
+
 
                             }
                         }else{

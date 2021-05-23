@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".find_id.FindResultIdFragment">
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/rank_product_exit"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/back_button"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:background="@null"
+            android:textColor="#262626"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingLeft="26dp"
+            android:text="아이디/비밀번호 찾기"
+            android:textColor="#262626"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        >
+        <View
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:id="@+id/result_page_name"
+            android:text="누구누구"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="   님의 찾으시는 아이디는 "/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="85dp"
+            android:layout_height="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="#50bcdf"
+        android:id="@+id/result_page_id"
+        android:text="떙떙떙 "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   입니다!!"
+            android:textSize="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="130dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+
+        <Button
+            android:id="@+id/result_id_page_login_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#6d7278"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:text="로그인"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/find_id_password_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#6d7278"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:text="아이디/비밀번호찾기"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+</LinearLayout>

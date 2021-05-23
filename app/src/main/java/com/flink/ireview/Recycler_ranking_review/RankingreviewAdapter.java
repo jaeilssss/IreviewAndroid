@@ -33,11 +33,11 @@ public class RankingreviewAdapter extends RecyclerView.Adapter<RankingreviewAdap
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-
-        holder.ranking_item_number.setText("1");
-        holder.ranking_item_image.setImageResource(R.drawable.airpods);
-        holder.ranking_item_company.setText("애플 (Apple)");
-        holder.ranking_item_name.setText("유선이어폰");
+        Integer num = position+1;
+        holder.ranking_item_number.setText(num.toString());
+        holder.ranking_item_image.setImageResource(R.drawable.test);
+        holder.ranking_item_company.setText(" ");
+        holder.ranking_item_name.setText(" ");
 
     }
 
@@ -56,7 +56,6 @@ public class RankingreviewAdapter extends RecyclerView.Adapter<RankingreviewAdap
 
         public CustomViewHolder(View itemView) {
             super(itemView);
-
             this.ranking_item_number = (TextView)itemView.findViewById(R.id.ranking_item_number);
             this.ranking_item_image = (ImageView) itemView.findViewById(R.id.ranking_item_image);
             this.ranking_item_company = (TextView)itemView.findViewById(R.id.ranking_item_company);

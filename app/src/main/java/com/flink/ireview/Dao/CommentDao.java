@@ -86,8 +86,8 @@ public class CommentDao {
                                 dto.setComment_uid(documentSnapshot.getId());
                                 list.add(dto);
                             }
-                            Fragment fragment =  new ReviewReadPageFragment(rdto,udto,list);
-                            fragmentTransaction.addToBackStack(null).replace(R.id.main_frame,fragment).commit();
+//                            Fragment fragment =  new ReviewReadPageFragment(rdto,udto,list);
+//                            fragmentTransaction.addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                         }
                     }
                 });

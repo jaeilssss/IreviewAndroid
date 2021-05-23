@@ -14,16 +14,16 @@ import java.util.concurrent.TimeUnit;
 
 public class SignUpHttp  {
     private static final String Tag = "HttpSender";
-    private static final String Url = "http://172.30.1.10:8080/";
+    private static final String Url = "http://11.12.11.111:8081/";
 
     protected String apiName;
-
     protected RequestBody body;
 
     String data;
 
     public void setBodyContents(Object... params) {
-        body = new FormEncodingBuilder().add("account", (String) params[0])
+        body = new FormEncodingBuilder()
+                .add("account", (String) params[0])
                 .add("password", (String) params[1])
                 .add("email", (String) params[2])
                 .add("name",(String)params[3])

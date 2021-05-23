@@ -9,15 +9,33 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:text="내가 추천한 리뷰"
-            android:textSize="30dp"
-            android:textAlignment="center"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_button"/>
+            <TextView
+                android:id="@+id/review_ui"
+                android:layout_marginLeft="16dp"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+                android:text="마이페이지"
+                android:textColor="#262626"
+                android:textSize="24sp" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_recommendated_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+
     </LinearLayout>
 
-    //리사이클러뷰 입력
+
 </ScrollView>

@@ -1,159 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView_gallery"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.review.ReviewReadPageFragment"
-    android:orientation="vertical">
-    <!--    수정,삭제 버튼 아직없음!!!!!!!!!!-->
-    <!--    !!!!!!!!!!!!!!!1-->
-    <!--    !!!!!!!-->
+    android:fillViewport="true">
+
+
+
+
     <LinearLayout
+        android:textAlignment="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
-            <!-- TODO: Update blank fragment layout -->
+
             <Button
-                android:id="@+id/review_modify_page_list"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:text="목록" />
+                android:layout_width="12dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:gravity="center"
+                android:text="X"
+                android:id="@+id/review_modify_page_back"
+                android:textColor="#6d7278"
+                android:textSize="18dp" />
 
             <TextView
+                android:id="@+id/text_review_write"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="     review"
-                android:textSize="40dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="제목:  "
-                android:textSize="30dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_title"
-                android:textSize="30dp"
-                android:text="ddddddddddd"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작성자:  "
-                android:textSize="15dp"/>
-            <TextView
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_nickname"
-                android:textSize="15dp"
-                android:text="ddddddddddd"/>
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_date"
-                android:text="2015년2월3일 23시30분20초"
-                android:textSize="10dp"
-                />
+                android:layout_height="48dp"
+                android:paddingLeft="26dp"
+                android:text="리뷰 수정"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
         </LinearLayout>
-        <!--    나중에 해당 이용자의 사진 사이즈에 따라서 이미지 뷰에 영향을 주는 방식으로 짜야될 거같음 -재일- -->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/review_modify_image"/>
+
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/review_modify_content"/>
+            android:layout_height="60dp"
+            android:hint="제목"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:id="@+id/notice_modify_title"
+            />
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#19000000"/>
+
+        <LinearLayout
+            android:paddingTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/notice_modify_content"
+                android:hint="내용"
+                android:background="@null"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:textColor="#a5a5a5"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:background="#f1f1f1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="제품"
+            android:id="@+id/modify_product_name"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="center"
+            android:textColor="#a5a5a5"
+            android:background="@null"/>
+        <View
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#19000000"/>
+
+        <Spinner
+            android:paddingTop="10dp"
+            android:id="@+id/Spinner_review_write_category"
+            android:entries="@array/spinner_array_category"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="center"/>
+        <View
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#19000000"/>
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="장점:"
-                android:textSize="20dp"
-                />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_advantage"/>
+            android:layout_height="72dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <ImageButton
+                android:id="@+id/review_image_insert"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:src="@drawable/photo_upload" />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="단점:"
-                android:textSize="20dp"
-                />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_weakness"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="조회수 : "/>
-            <TextView
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_view_count"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋아요 : "/>
-            <TextView
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_recommend"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스크랩 : "/>
-            <TextView
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/review_modify_scrap"/>
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content" />
+            android:orientation="horizontal"
+            android:id="@+id/imageview_layout"
+            >
+            <!--    여기는 이미지 첨부 시 보여주는 공간 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_modify_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/review_modify_submit"
-    android:text="수정 완료"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="장점"
+            android:id="@+id/advantage_point"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="center"
+            android:textColor="#a5a5a5"
+            android:background="@null"/>
+        <View
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#19000000"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:id="@+id/weakness_point"
+            android:hint="단점"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="center"
+            android:textColor="#a5a5a5"
+            android:background="@null"/>
+        <View
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#19000000"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="32dp"/>
+
+
         <Button
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:text="수정"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="#24a6e7"
+            android:id="@+id/modify_submit"
+            android:layout_gravity="center"
+            />
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="나가기"
-            android:id="@+id/review_modify_exit"/>
+            android:layout_height="32dp"/>
+
     </LinearLayout>
 
 </ScrollView>

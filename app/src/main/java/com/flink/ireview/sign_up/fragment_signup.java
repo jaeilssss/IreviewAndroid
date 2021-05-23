@@ -181,7 +181,7 @@ public class fragment_signup extends Fragment {
                     String signup_year = year.getText().toString();
                     date = view.findViewById(R.id.signup_date);
                     String signup_date = date.getText().toString();
-
+                    currentId  = account.getText().toString();
 
                     String signup_month = Spinner_singup_month.getSelectedItem().toString();
                     System.out.println(signup_month);
@@ -245,8 +245,8 @@ public class fragment_signup extends Fragment {
                         }
                         else{
                             System.out.println(checkemail);
-                            Member usersDto = new Member(signup_email,signup_password,signup_email,signup_name,signup_nickname,
-                                    signup_phone,signup_year,signup_month,signup_date,gender,"user");
+                            Member usersDto = new Member(currentId,signup_password,signup_email,signup_name,signup_nickname,
+                                    signup_phone,signup_year,signup_month,signup_date,gender,"user","null");
                             Fragment fragment = new fragment_signup_category(usersDto);
                             getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.main_frame,fragment).commit();
                         }

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollView_gallery"
@@ -7,147 +6,196 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:background="#ffffff"
-            android:id="@+id/text_review_write"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <LinearLayout
             android:textAlignment="center"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/review_ui"
-                android:text="review_ui"
-                android:textSize="30dp"
-                android:textAlignment="center"
-                android:background="#ffffff"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
-
-            <Spinner
-                android:id="@+id/Spinner_review_write_category"
-                android:entries="@array/spinner_array_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="360dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-                <LinearLayout
+                <Button
+                    android:layout_width="12dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="X"
+                    android:id="@+id/review_write_page_back"
+                    android:textColor="#6d7278"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/text_review_write"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="제목 :"
-                        android:textSize="20dp"/>
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="제목을 입력하세요"
-                        android:id="@+id/notice_write_title"
-                        />
-
-                </LinearLayout>
+                    android:layout_height="48dp"
+                    android:paddingLeft="26dp"
+                    android:text="리뷰 작성"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
             </LinearLayout>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="제목"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:id="@+id/notice_write_title"
+                />
+
+            <View
+                android:layout_width="380dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#19000000"/>
+
             <LinearLayout
+                android:paddingTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="500dp">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/notice_write_content"/>
+                    android:id="@+id/notice_write_content"
+                    android:hint="내용"
+                    android:background="@null"
+                    android:paddingRight="16dp"
+                    android:paddingLeft="16dp"
+                    />
             </LinearLayout>
 
-
-            <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="장점"
-        android:textSize="23dp"
-        />
-                <EditText
-                    android:layout_width="340dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/advantage_point"/>
-            </LinearLayout>
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="단점"
-                android:textSize="23dp"
-                />
+                android:layout_height="16dp"
+                android:background="#f1f1f1"/>
+
             <EditText
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/weakness_point"/>
-        </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:hint="제품"
+                android:id="@+id/review_write_produce_name"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                 />
+
+            <View
+                android:layout_width="380dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#19000000"/>
+
+            <Spinner
+                android:paddingTop="10dp"
+                android:id="@+id/Spinner_review_write_category"
+                android:entries="@array/spinner_array_category"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_gravity="center"/>
+            <View
+                android:layout_width="380dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#19000000"/>
+
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <ImageButton
                     android:id="@+id/review_image_insert"
-                    android:layout_width="12dp"
-                    android:layout_height="34dp"
-                    android:src="@drawable/upload_bt" />
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="이미지는 최대 8까지 첨부 가능합니다"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/photo_upload" />
+
             </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:id="@+id/imageview_layout"
-    >
-<!--    여기는 이미지 첨부 시 보여주는 공간 -->
-
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/imageview"/>
-
-</LinearLayout>
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="완료"
+                android:orientation="horizontal"
+                android:id="@+id/imageview_layout"
+                >
+                <!--    여기는 이미지 첨부 시 보여주는 공간 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_insert_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:hint="장점"-->
+<!--                android:id="@+id/advantage_point"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:paddingRight="16dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:textColor="#a5a5a5"-->
+<!--                android:background="@null"/>-->
+<!--            <View-->
+<!--                android:layout_width="380dp"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="#19000000"/>-->
+
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:id="@+id/weakness_point"-->
+<!--                android:hint="단점"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:paddingRight="16dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:textColor="#a5a5a5"-->
+<!--                android:background="@null"/>-->
+<!--            <View-->
+<!--                android:layout_width="380dp"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="#19000000"/>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="32dp"/>-->
+
+
+            <Button
+                android:layout_width="328dp"
+                android:layout_height="48dp"
+                android:text="작성"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:background="#24a6e7"
                 android:id="@+id/write_submit"
+                android:layout_gravity="center"
                 />
-            <Button
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="나가기"
-                android:id="@+id/write_exit"/>
+                android:layout_height="32dp"/>
+
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

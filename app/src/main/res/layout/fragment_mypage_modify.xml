@@ -1,161 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/signup_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <FrameLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
         <Button
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:text="EXIT"
+            android:id="@+id/mypage_modify_exit"
+            android:layout_width="12dp"
+            android:layout_height="22dp"
+            android:text="X"
+            android:textSize="18dp"
+            android:gravity="center"
             android:background="@null"
-            android:id="@+id/mypage_modify_exit"/>
+            android:textColor="#262626"/>
 
         <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingLeft="26dp"
             android:text="정보 수정"
-            android:textAlignment="center"
-            android:textColor="#2196F3"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            android:textColor="#262626"
+            android:textSize="18sp"/>
 
-    </FrameLayout>
+    </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#19000000"/>
 
 
     <TextView
-        android:text="프로필"
-        android:textSize="18dp"
-        android:textAlignment="textStart"
-        android:background="#56949394"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:gravity="center"
+        android:textColor="#262626"
+        android:text="프로필 사진"
+        android:textSize="14sp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="vertical"
+        android:layout_gravity="center">
+        <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
-        <ImageView
-            android:id="@+id/mypage_modify_my_image"
-            android:layout_gravity="center"
-            android:background="@null"
-            android:src="@drawable/profile_human"
-            android:layout_width="100dp"
-            android:layout_height="100dp"/>
+        >
+            <ImageView
+                android:id="@+id/my_image"
+                android:background="@drawable/radius"
+                android:src="@drawable/profile_human"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="70dp"
+                android:id="@+id/profile_image_modify_button"
+                android:background="@drawable/camera"/>
+
+<!--                android:background= "@drawable/radius"-->
+<!--                />-->
+
+        </RelativeLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#56949394"/>
 
     <TextView
-        android:text="회원 정보 수정"
-        android:textSize="18dp"
-        android:textAlignment="textStart"
-        android:background="#56949394"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:gravity="center"
+        android:textColor="#262626"
+        android:text="개인정보"
+        android:textSize="14sp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"/>
+
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="40dp"
+        android:weightSum="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@null">
 
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:text="이름"
-            android:textAlignment="center"
-            android:textSize="20dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:layout_weight="0.95">
+            <com.google.android.material.textfield.TextInputEditText
+                android:paddingTop="2dp"
+                android:id="@+id/mypage_modify_my_nickname"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="닉네임"/>
+        </com.google.android.material.textfield.TextInputLayout>
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="중복확인"
+           android:textSize="14sp"
+           android:background="@null"
+           android:layout_weight="0.05"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#19000000"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@null">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mypage_modify_my_email"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="이메일"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="중복확인"
+            android:textSize="14sp"
+            android:background="@null"
+            android:layout_weight="0.05"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#19000000"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@null">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mypage_modify_my_phonenumber"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="연락처"
+                android:textColorHighlight="#03A9F4"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인증하기"
+            android:textSize="14sp"
+            android:background="@null"
+            android:layout_weight="0.05"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#19000000"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:weightSum="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@null">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mypage_modify_my_phonenumber_confirm"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="인증번호"
+                android:textColorHint="#03A9F4"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:textSize="14sp"
+            android:background="@null"
+            android:layout_weight="0.05"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#19000000"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <EditText
+            android:layout_gravity="center"
             android:id="@+id/mypage_modify_my_name"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-
-        <TextView
-            android:text="닉네임"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:layout_width="80dp"
-            android:layout_height="60dp"/>
-
-        <EditText
-            android:id="@+id/mypage_modify_my_nickname"
-            android:layout_width="240dp"
-            android:layout_height="60dp" />
-        <Button
-            android:text="중복 확인"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:background="@null"/>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-
-        <TextView
-            android:text="연락처"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_width="80dp"
-            android:layout_height="60dp"/>
-
-        <EditText
-            android:id="@+id/mypage_modify_my_phonenumber"
-            android:layout_width="240dp"
-            android:layout_height="60dp"/>
-        <Button
-            android:text="인증 요청"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이름"
             android:background="@null"/>
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#56949394"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="40dp"
+        android:background="@null">
 
         <TextView
+            android:gravity="center"
+            android:textColor="#262626"
             android:text="관심 카테고리"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_width="125dp"
-            android:layout_height="60dp"/>
+            android:textSize="14sp"
+            android:layout_marginLeft="16dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"/>
+
         <TextView
             android:layout_width="195dp"
             android:layout_height="60dp"/>
         <Button
             android:text="변경하기"
+            android:id="@+id/mypage_modify_interest_modify_button"
             android:layout_width="70dp"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:background="@null"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageView
+            android:id="@+id/mypage_modify_interest1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/em_heart"/>
+
+        <ImageView
+            android:id="@+id/mypage_modify_interest2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/em_heart"/>
+
+        <ImageView
+            android:id="@+id/mypage_modify_interest3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/em_heart"/>
+
+        <ImageView
+            android:id="@+id/mypage_modify_interest4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/em_heart"/>
+
+        <ImageView
+            android:id="@+id/mypage_modify_interest5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/em_heart"/>
+
     </LinearLayout>
 
 
-    <LinearLayout
+
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="vertical"
@@ -175,7 +376,7 @@
 
             <EditText
                 android:hint="현재 비밀번호"
-                android:layout_width="300dp"
+               android:layout_width="300dp"
                 android:layout_height="50dp"
                 />
         </LinearLayout>
@@ -218,17 +419,25 @@
 
 
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 
+<View
+    android:layout_width="match_parent"
+    android:layout_height="20dp"/>
 
+<Button
+    android:layout_width="328dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:text="저장"
+    android:background="#e6e6e6"
+    android:id="@+id/mypage_modify_button"/>
 
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:text="저장"
-        android:background="@null"
-        android:id="@+id/mypage_modify_button"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
 </LinearLayout>
+
 </ScrollView>

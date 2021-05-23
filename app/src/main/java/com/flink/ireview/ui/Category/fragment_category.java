@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.flink.ireview.Dto.Board;
 import com.flink.ireview.Dto.Member;
 import com.flink.ireview.Dto.ReviewDto;
 import com.flink.ireview.Dto.UsersDto;
@@ -24,6 +25,8 @@ import com.flink.ireview.R;
 import com.flink.ireview.Recycler_category_tree.CategorytreeAdapter;
 import com.flink.ireview.Recycler_category_tree.CategorytreeData;
 import com.flink.ireview.ReviewRecycleView.ReviewAdapter;
+import com.flink.ireview.ReviewRecycleView.ReviewAdapter2;
+import com.flink.ireview.http.board.reviewSetListHttp;
 import com.flink.ireview.ui.review.reviewWriteFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,137 +37,150 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.ThrowOnExtraProperties;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 public class fragment_category extends Fragment {
+    private int categoryId;
+
     public fragment_category(Member member) {
         this.member = member;
     }
 
+    public fragment_category(Member member , int categoryId) {
+        this.member = member;
+        this.categoryId= categoryId;
+        list = null;
+    }
+
+    public fragment_category(int categoryId, Member member, ArrayList<Board> list) {
+        this.categoryId = categoryId;
+        this.member = member;
+        this.list = list;
+    }
+
     private Member member;
-    private ArrayList<CategorytreeData> arrayList;
+    private ArrayList<Integer> arrayList;
     private CategorytreeAdapter categorytreeAdapter;
     private RecyclerView recyclerView;
     private GridLayoutManager gridLayoutManager;
-
-    private FragmentCategoryViewModel mViewModel;
+    private TextView categoryName;
     private Button write;
-    private UsersDto dto;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseUser user ;
     private RecyclerView rcv;
-    ArrayList<ReviewDto> list;
-    Fragment current;
+    private int start;
+    private ArrayList<Board> list ;
     View view;
     FragmentTransaction fragmentTransaction;
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_category, container, false);
-        if(member!=null){
-            Toast.makeText(getContext(),"닉네임 : "+member.getNickName(),Toast.LENGTH_SHORT).show();
-            setReviewList();
-        }
         recyclerView = (RecyclerView)view.findViewById(R.id.rv_category_tree);
-        gridLayoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-
+        gridLayoutManager = new GridLayoutManager(getContext(), 17);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        categoryName = view.findViewById(R.id.category_name);
         arrayList = new ArrayList<>();
-
-        categorytreeAdapter = new CategorytreeAdapter(arrayList);
+    arrayList.add(categoryId);
+    int j=0;
+    for(int i=0; i <17;i++){
+        if(arrayList.get(0)!=i){
+            arrayList.add(i);
+        }
+    }
+        categorytreeAdapter = new CategorytreeAdapter(arrayList,categoryId);
         recyclerView.setAdapter(categorytreeAdapter);
-
-        CategorytreeData categorytreeData = new CategorytreeData("전체 보기");
-        arrayList.add(categorytreeData);
 
 
         categorytreeAdapter.notifyDataSetChanged();
-
-        fragmentTransaction = getFragmentManager().beginTransaction();
-        write = view.findViewById(R.id.review_write_button);
-        dto = new UsersDto();
-        final Fragment fragment = new reviewWriteFragment(member);
-        write.setOnClickListener(new TextView.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(member==null){
-                    Toast.makeText(getContext(),"회원만 이용 가능 합니다!!", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    FragmentManager fragmentManager = getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.replace(R.id.main_frame,fragment).commit();
-                }
-            }
-        });
-
+        start = 0;
+         fragmentTransaction =  getFragmentManager().beginTransaction();
+        setReviewList();
+        setCategoryName(categoryId);
         return view;
     }
+public void setReviewList(){
+        if(list==null){
+            reviewSetListHttp reviewSetListHttp = new reviewSetListHttp();
+            reviewSetListHttp.setBodyContents(categoryId , start);
+            list = new ArrayList<>();
+            list = reviewSetListHttp.send();
+        }
+    if(list!=null){
+        rcv = view.findViewById(R.id.rv_category);
+        ReviewAdapter2 adapter = new ReviewAdapter2(getContext(),member,fragmentTransaction,list);
+        rcv.setLayoutManager(new GridLayoutManager(getContext(),2));
+        rcv.setAdapter(adapter);
+    }
 
+}
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.review_write_button :
-                    if(FirebaseAuth.getInstance().getCurrentUser()==null){
-                        Toast.makeText(getContext(),"회원만 이용 가능 합니다!!", Toast.LENGTH_SHORT).show();
-                        break;
-                    }else{
-                        Fragment fragment = new reviewWriteFragment(member);
-                        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.nav_host_fragment,fragment).commit();
-                        break;
-                    }
+
             }
         }
     };
-    public void setReviewList(){
-        list = new ArrayList<>();
-        db.collection("category").document("test")
-                .collection("review")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot documentSnapshot: task.getResult()){
-                        Map<String, Object> map = documentSnapshot.getData();
-                        ReviewDto dto = new ReviewDto(
-                                String.valueOf(map.get("reviewer_nickname")), String.valueOf(map.get("reviewer_uid")),
-                                String.valueOf(map.get("review_create_time")), String.valueOf(map.get("review_category_UID")),
-                                String.valueOf(map.get("review_main_title")), String.valueOf(map.get("review_main_string")),
-                                (ArrayList<String>)map.get("review_main_image"),(ArrayList<String>)map.get("review_main_advantage"),
-                                (ArrayList<String>)map.get("review_main_weakness"),(ArrayList<String>)map.get("recommend_list"),
-                                Integer.parseInt(String.valueOf(map.get("recommend_count"))), Integer.parseInt(String.valueOf(map.get("review_view_number"))),
-                                (ArrayList<String>)map.get("comment_list"),(ArrayList<String>)map.get("scrap_list"));
-                        System.out.println(documentSnapshot.getId());
-                        dto.setReview_UID(documentSnapshot.getId());
-                        list.add(dto);
 
-                    }
-                    rcv = view.findViewById(R.id.rv_category);
-                    //  FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
-                    ReviewAdapter adapter = new ReviewAdapter(getContext(),list,fragmentTransaction,dto);
-                    rcv.setLayoutManager(new GridLayoutManager(getContext(),3));
-                    rcv.setAdapter(adapter);
-
-                }
-            }
-        });
-    }
-    public void setMyInfo(){
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        db.collection("users").document(user.getEmail())
-                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                dto = documentSnapshot.toObject(UsersDto.class);
-                setReviewList();
-            }
-        });
+    public void setCategoryName(int categoryId){
+        switch (categoryId){
+            case 0:
+              categoryName.setText("패션");
+                break;
+            case 1:
+            categoryName.setText("의료");
+                break;
+            case 2:
+                categoryName.setText("뷰티");
+                break;
+            case 3:
+                categoryName.setText("문화");
+                break;
+            case 4:
+                categoryName.setText("생활용품");
+                break;
+            case 5:
+                categoryName.setText("교육");
+                break;
+            case 6:
+                categoryName.setText("인테리어");
+                break;
+            case 7:
+                categoryName.setText("도서");
+                break;
+            case 8:
+                categoryName.setText("가전제품");
+                break;
+            case 9:
+                categoryName.setText("유아용품");
+                break;
+            case 10:
+                categoryName.setText("IT");
+                break;
+            case 11:
+                categoryName.setText("반려용품");
+                break;
+            case 12:
+                categoryName.setText("차량/오토바이");
+                break;
+            case 13:
+                categoryName.setText("취미");
+                break;
+            case 14:
+                categoryName.setText("스포츠/레저");
+                break;
+            case 15:
+                categoryName.setText("악기");
+                break;
+            case 16:
+                categoryName.setText("여행");
+                break;
+        }
     }
 }
 

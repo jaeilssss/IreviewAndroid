@@ -31,7 +31,7 @@
             android:layout_gravity="center"
             android:layout_weight="0.05"
             android:background="@null"
-            android:src="@drawable/profile_human"
+            android:src="@drawable/test"
             ></ImageView>
 
         <LinearLayout

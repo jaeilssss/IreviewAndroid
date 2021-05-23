@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="홈"/>
     <item
         android:id="@+id/action_category"
         android:enabled="true"
@@ -7,27 +13,23 @@
         android:title="카테고리"/>
 
     <item
-        android:id="@+id/action_ranking"
+        android:id="@+id/action_write"
         android:enabled="true"
-        android:icon="@drawable/medal"
-        android:title="랭킹"/>
+        android:icon="@drawable/bottom_review"
+        android:title="리뷰작성"/>
 
-    <item
-        android:id="@+id/action_home"
-        android:enabled="true"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="홈"/>
+
 
     <item
         android:id="@+id/action_alarm"
         android:enabled="true"
         android:icon="@drawable/bottom_alarm"
-        android:title="알람"/>
+        android:title="알림"/>
 
     <item
         android:id="@+id/action_mypage"
         android:enabled="true"
-        android:icon="@drawable/bottom_mypage2"
+        android:icon="@drawable/bottom_mypage"
         android:title="마이페이지"/>
 
 </menu>

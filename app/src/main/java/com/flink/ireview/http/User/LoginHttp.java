@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginHttp {
     private static final String Tag = "HttpSender";
-    private static final String Url = "http://172.30.1.10:8080/";
+    private static final String Url = "http://11.12.11.111:8081/";
     protected String apiName;
 
     protected RequestBody body;
@@ -50,7 +50,6 @@ body = new FormEncodingBuilder().add("username",String.valueOf(params[0]))
                     return null;
                 }
             };
-
             return asyncTask.execute().get();
         }catch(Exception e){
             e.printStackTrace();

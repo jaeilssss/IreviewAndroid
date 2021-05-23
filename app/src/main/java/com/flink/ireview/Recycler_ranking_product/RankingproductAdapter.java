@@ -34,9 +34,9 @@ public class RankingproductAdapter extends RecyclerView.Adapter<RankingproductAd
     @Override
     public void onBindViewHolder(@NonNull RankingproductAdapter.CustomViewHolder holder, int position) {
         holder.ranking_item_number.setText("1");
-        holder.ranking_item_image.setImageResource(R.drawable.airpods);
-        holder.ranking_item_company.setText("애플 (Apple)");
-        holder.ranking_item_name.setText("airpods pro");
+        holder.ranking_item_image.setImageResource(R.drawable.test);
+        holder.ranking_item_company.setText(" ");
+        holder.ranking_item_name.setText(" ");
     }
 
     @Override

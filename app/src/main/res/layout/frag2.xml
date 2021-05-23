@@ -13,38 +13,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="RANKING"
         android:textColor="#75D4FF"
         android:textAlignment="center"
-        android:textSize="20dp"/>
+        android:textSize="20dp"/>-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
         android:weightSum="1"
         >
 
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:text="상품 랭킹"
-            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="16dp"
+            android:textSize="15sp"
             android:layout_weight="0.95"/>
 
-        <Button
+        <TextView
+            android:id="@+id/rank_product_more"
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:text=">"
+            android:text="더보기"
             android:gravity="center"
+            android:layout_marginRight="16dp"
+            android:textSize="14sp"
             android:background="@null"
+            android:textColor="#676767"
             android:layout_weight="0.05"/>
         
     </LinearLayout>
@@ -52,32 +60,36 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ranking_product"
         android:layout_width="match_parent"
-        android:layout_height="360dp">
+        android:layout_height="260dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:weightSum="1"
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:text="리뷰 랭킹"
-            android:textSize="18sp"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_weight="0.95"/>
 
         <Button
+            android:id="@+id/rank_review_more"
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:text=">"
+            android:text="더보기"
+            android:textSize="14sp"
             android:gravity="center"
+            android:textColor="#676767"
             android:background="@null"
             android:layout_weight="0.05"/>
     </LinearLayout>
@@ -85,31 +97,34 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ranking_review"
         android:layout_width="match_parent"
-        android:layout_height="360dp">
+        android:layout_height="260dp">
     </androidx.recyclerview.widget.RecyclerView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:weightSum="1"
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:text="유저 랭킹"
-            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:layout_weight="0.95"/>
 
         <Button
+            android:id="@+id/rank_user_more"
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:text=">"
+            android:text="더보기"
             android:gravity="center"
+            android:textColor="#676767"
             android:background="@null"
             android:layout_weight="0.05"/>
     </LinearLayout>
@@ -117,7 +132,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ranking_user"
         android:layout_width="match_parent"
-        android:layout_height="360dp">
+        android:layout_height="260dp">
     </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

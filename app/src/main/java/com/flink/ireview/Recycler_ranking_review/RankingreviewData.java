@@ -14,7 +14,6 @@ public class RankingreviewData {
         this.ranking_item_name = ranking_item_name;
     }
 
-
     public String getRanking_item_number() {
         return ranking_item_number;
     }

@@ -18,6 +18,7 @@ public class Frag3 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.frag3, container, false);
+        System.out.println("1`111111");
 
         return view;
 

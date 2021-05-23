@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MyInfoHttp {
     private static final String Tag = "HttpSender";
-    private static final String Url = "http://172.30.1.10:8080/";
+    private static final String Url = "http://11.12.11.111:8081/";
     protected String apiName;
 
     protected RequestBody body;
@@ -55,10 +55,19 @@ public class MyInfoHttp {
 
                             member = new Member(String.valueOf(jsonObject1.get("account")),String.valueOf(jsonObject1.get("password")),String.valueOf(jsonObject1.get("email")),String.valueOf(jsonObject1.get("name"))
                             ,String.valueOf(jsonObject1.get("nick_name")),String.valueOf(jsonObject1.get("phone_number")),String.valueOf(jsonObject1.get("birth_yy")),String.valueOf(jsonObject1.get("birth_mm")),String.valueOf(jsonObject1.get("birth_dd"))
-                            ,String.valueOf(jsonObject1.get("gender")),String.valueOf(jsonObject1.get("status")));
+                            ,String.valueOf(jsonObject1.get("gender")),String.valueOf(jsonObject1.get("status")),String.valueOf(jsonObject1.get("sumnail_image")));
                             System.out.println("111");
                             member.setId(Long.valueOf(String.valueOf(jsonObject1.get("id"))));
                             System.out.println("222");
+                            member.setInterest1(Integer.parseInt(String.valueOf(jsonObject1.get("interest1"))));
+                            member.setInterest2(Integer.parseInt(String.valueOf(jsonObject1.get("interest2"))));
+
+                            member.setInterest3(Integer.parseInt(String.valueOf(jsonObject1.get("interest3"))));
+
+                            member.setInterest4(Integer.parseInt(String.valueOf(jsonObject1.get("interest4"))));
+
+                            member.setInterest5(Integer.parseInt(String.valueOf(jsonObject1.get("interest5"))));
+
                             return member;
 
 ////                            Log.e(Tag, "result : " + data);

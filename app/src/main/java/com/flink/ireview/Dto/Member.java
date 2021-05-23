@@ -46,6 +46,8 @@ public class Member {
 
     private int interest5;
 
+    private String sumNailImage;
+
     public Long getId() {
         return id;
     }
@@ -173,8 +175,15 @@ public class Member {
     public void setInterest5(int interest5) {
         this.interest5 = interest5;
     }
+    public String getSumNailImage() {
+        return sumNailImage;
+    }
 
-    public Member(String account, String password, String email, String name, String nickName, String phoneNumber, String year, String month, String date, String gender,String status) {
+    public void setSumNailImage(String sumNailImage) {
+        this.sumNailImage = sumNailImage;
+    }
+
+    public Member(String account, String password, String email, String name, String nickName, String phoneNumber, String year, String month, String date, String gender,String status,String sumNailImage) {
         this.account = account;
         this.password = password;
         this.email = email;
@@ -186,5 +195,6 @@ public class Member {
         this.date = date;
         this.gender = gender;
         this.status = status;
+        this.sumNailImage = sumNailImage;
     }
 }

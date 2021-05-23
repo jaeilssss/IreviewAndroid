@@ -33,13 +33,13 @@ public class RankinguserAdapter extends RecyclerView.Adapter<RankinguserAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull RankinguserAdapter.CustomViewHolder holder, int position) {
-        holder.ranking_user_item_number.setText("1");
-        holder.ranking_user_item_image.setImageResource(R.drawable.profile_human);
-        holder.ranking_user_item_nickname.setText("evn.ha");
+        holder.ranking_user_item_number.setText("");
+        holder.ranking_user_item_image.setImageResource(R.drawable.test);
+        holder.ranking_user_item_nickname.setText("");
         holder.ranking_user_item_recommend.setText("추천수");
-        holder.ranking_user_item_recommendnumber.setText("6");
+        holder.ranking_user_item_recommendnumber.setText("");
         holder.ranking_user_item_commend.setText("댓글");
-        holder.ranking_user_item_commendnumber.setText("700");
+        holder.ranking_user_item_commendnumber.setText("");
     }
 
     @Override

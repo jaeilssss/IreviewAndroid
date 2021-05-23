@@ -49,26 +49,23 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-
        /* LoginViewModel =
                 ViewModelProviders.of(this).get(com.flink.ireview.ui.login.LoginViewModel.class);*/
         View root = inflater.inflate(R.layout.fragment_login, container, false);
-        final TextView textView = root.findViewById(R.id.text_login);
         /*LoginViewModel.getText().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
+        public void onChanged(@Nullable String s) {
+            textView.setText(s);
+        }
+    });*/
         login = root.findViewById(R.id.Button_Login);
         dao =  new UsersDao(getContext() , getFragmentManager().beginTransaction()); // dao 초기값 !!!!
         account = root.findViewById(R.id.textView_Login_id);
         password = root.findViewById(R.id.textView_Login_password);
-        login.setOnClickListener(onClickListener);
 
+        login.setOnClickListener(onClickListener);
         Button button1= (Button)root.findViewById(R.id.Button_find_id);
         View view1 = root.findViewById(R.id.find_id_page);
-//        final Fragment fragment1 = new fragment_find_id();
         final Fragment fragment1 = new find_id_password();
 
         button1.setOnClickListener(new TextView.OnClickListener() {
@@ -81,19 +78,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        Button button2= (Button)root.findViewById(R.id.Button_find_password);
         View view2 = root.findViewById(R.id.find_password_page);
-        final Fragment fragment2 = new fragment_find_password();
-        button2.setOnClickListener(new TextView.OnClickListener() {
-            @Override
-            public void onClick(View view2) {
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.replace(R.id.main_frame, fragment2).commit();
-            }
-        });
-
         Button button3= (Button)root.findViewById(R.id.Button_signup);
         View view3 = root.findViewById(R.id.signup_page);
         final Fragment fragment3 = new fragment_signup();
@@ -117,7 +102,6 @@ public class LoginFragment extends Fragment {
                         LoginHttp http = new LoginHttp();
                         http.setBodyContents(account.getText().toString(),password.getText().toString());
                         String data = http.send();
-
                         if(data.equals("failure")){
                             Toast.makeText(getContext(),"존재하지 않는 계정 , 비밀번호 입니다",Toast.LENGTH_SHORT).show();
                         }else{
